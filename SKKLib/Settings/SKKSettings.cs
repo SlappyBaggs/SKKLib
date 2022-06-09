@@ -36,10 +36,19 @@ namespace SKKLib.Settings
 
         public static bool HasSettingType(Type t) => extra_.Contains(t);
 
+        private static int SettingIndex(string s) => settings_.FindIndex(x => x.Key == s);
+
         public static bool HasSetting(string s)
         {
             LoadSettings();
-            return settings_.FindIndex(x => x.Key == s) != -1;
+            return SettingIndex(s) != -1;
+        }
+
+        public static bool HasSettingOfType(string s, Type t)
+        {
+            int i;
+            if ((i = SettingIndex(s)) != -1) return settings_[i].Value.GetType().Equals(t);
+            return false;
         }
 
         public static string GetSettingString(string s) => (string)GetSetting(s);
@@ -113,7 +122,7 @@ namespace SKKLib.Settings
         {
             LoadSettings();
             SettingsOb so = settings_.Find(x => x.Key == s);
-            Type t = so.Value.GetType();
+            //Type t = so.Value.GetType();
             return (so is null) ? null : so.Value;// /*|| so.Value is null*/) ? null : JsonConvert.DeserializeObject(so.Value.ToString());
         }
 
