@@ -119,6 +119,7 @@
     <Compile Include="Math\CurveFit.cs" />
     <Compile Include="Math\Point2.cs" />
     <Compile Include="Math\Polynomial.cs" />
+    <Compile Include="Printing\SKKPrinting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serial\Controls\SKKSerialPortC.cs">
       <SubType>Component</SubType>
@@ -142,6 +143,8 @@
     <Compile Include="Serial\Data\SKKSerialSelectBoxDesigner.cs" />
     <Compile Include="Serial\Interface\ISKKSerialPort.cs" />
     <Compile Include="Serial\Interface\ISKKSerialPortC.cs" />
+    <Compile Include="Serial\Interface\ISKKReader.cs" />
+    <Compile Include="Serial\Interface\ISKKWriter.cs" />
     <Compile Include="Serial\SKKSerial.cs" />
     <Compile Include="Serial\SKKSerialPort.cs" />
     <Compile Include="Serial\SKKSerialPortBASE.cs" />
