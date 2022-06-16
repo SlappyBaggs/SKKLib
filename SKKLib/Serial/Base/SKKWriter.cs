@@ -6,8 +6,6 @@ namespace SKKLib.Serial.Base
     {
         public ISKKSerialPort SerialPort { get; set; }
 
-        //public SKKWriter() { }
-
         public abstract void SendMessage(string cmd, byte macID);
     }
 }

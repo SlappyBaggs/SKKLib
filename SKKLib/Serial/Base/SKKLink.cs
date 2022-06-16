@@ -32,8 +32,8 @@ namespace SKKLib.Serial.Base
                 }
                 else
                 {
-                    (reader_ = new R()).SerialPort = serialPort_; // GetReader;
-                    (writer_ = new W()).SerialPort = serialPort_;// GetWriter;
+                    (reader_ = new R()).SerialPort = serialPort_;
+                    (writer_ = new W()).SerialPort = serialPort_;
                 }
             }
         }

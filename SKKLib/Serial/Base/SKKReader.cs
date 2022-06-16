@@ -6,8 +6,6 @@ namespace SKKLib.Serial.Base
     {
         public ISKKSerialPort SerialPort { get; set; }
 
-        //public SKKReader() { }
-
         public abstract string ReadMessage(byte macID);
     }
 }
