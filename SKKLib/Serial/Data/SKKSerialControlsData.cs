@@ -11,8 +11,8 @@ using System.Drawing;
 namespace SKKLib.Serial.Data
 {
     #region EVENT DELEGATES
-    public delegate void SKKSerialSelectBoxSetPort_EH(Interface.ISKKSerialPort port);
-    public delegate void SKKSerialSelectBoxPortNameChanged_EH(string name);
+    public delegate void PortAssigned_EH(Interface.ISKKSerialPort port);
+    public delegate void PortNameChanged_EH(string name);
     #endregion
 
     public enum LabelPosition

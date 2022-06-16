@@ -245,14 +245,14 @@ namespace SKKLib.Serial.Controls
         #region EVENTS & HANDLERS
         private void OnSerialPortOpenClose(OpenedClosed oc) => Invoke((Action)delegate { cbPortName.Enabled = oc == OpenedClosed.Closed; });
 
-        public event SKKSerialSelectBoxSetPort_EH SKKSerialSelectBoxSetPortEvent;
-        private void OnSerialSelectBoxSetPort(Interface.ISKKSerialPort port) { if (SKKSerialSelectBoxSetPortEvent != null) SKKSerialSelectBoxSetPortEvent(port); }
+        public event PortAssigned_EH PortAssigned;
+        private void OnSerialSelectBoxSetPort(Interface.ISKKSerialPort port) { if (PortAssigned != null) PortAssigned(port); }
 
-        public event SKKSerialSelectBoxPortNameChanged_EH SKKSerialSelectBoxPortNameChangedEvent;
+        public event PortNameChanged_EH PortNameChanged;
         private void OnSerialSelectBoxPortNameChanged(string name)
         { 
-            if (SKKSerialSelectBoxPortNameChangedEvent != null) 
-                SKKSerialSelectBoxPortNameChangedEvent(name);
+            if (PortNameChanged != null) 
+                PortNameChanged(name);
 
             // We should update our SelectedIndex here...
             if (cbPortName.Items.Contains(name))
