@@ -73,6 +73,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Console\Config\SKKConsolePageConfig.cs" />
+    <Compile Include="Console\Config\SKKConsolePageConfigCollection.cs" />
+    <Compile Include="Console\SKKConsole.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Console\SKKConsole.Designer.cs">
+      <DependentUpon>SKKConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Console\SKKConsoleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Console\SKKConsoleForm.Designer.cs">
+      <DependentUpon>SKKConsoleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Console\SKKConsolePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Console\SKKConsolePage.Designer.cs">
+      <DependentUpon>SKKConsolePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Controls\KeyPad.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -149,9 +169,14 @@
     <Compile Include="Serial\SKKSerialPort.cs" />
     <Compile Include="Serial\SKKSerialPortBASE.cs" />
     <Compile Include="Settings\SKKSettings.cs" />
+    <Compile Include="Console\Data\SKKConsolePageConfigCollectionTypeConverter.cs" />
+    <Compile Include="Console\Data\SKKConsolePageConfigDefaults.cs" />
+    <Compile Include="Console\Data\SKKConsolePageConfigTypeConverter.cs" />
     <Compile Include="StringEncrypt\SKKStringEncrypt.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Console\SKKConsoleForm.resx" />
+    <EmbeddedResource Include="Console\SKKConsolePage.resx" />
     <EmbeddedResource Include="Controls\Controls\KeyPad.resx">
       <DependentUpon>KeyPad.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,5 +205,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
