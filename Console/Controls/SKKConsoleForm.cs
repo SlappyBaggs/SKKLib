@@ -35,6 +35,8 @@ namespace SKKLib.Console.Controls
         public event ConsoleEvent ConsoleHidden = delegate { };
         public event ConsoleEvent ConsoleVisible = delegate { };
 
+        private object myLock_ = new object();
+
         private SKKConsole myData_ = null;
         public SKKConsoleForm(SKKConsole data)
         {
@@ -140,41 +142,44 @@ namespace SKKLib.Console.Controls
          *************************************************************/
         internal void Write(string cat, string msg)
         {
-            if (InvokeRequired) { Invoke((Action)delegate { Write(msg, cat); }); }
+            if (InvokeRequired) { Invoke((Action)delegate { Write(cat, msg); }); }
             else
             {
-                if (cat is null)
+                lock (myLock_)
                 {
-                    throw new ArgumentNullException("Cannot write to a null category.");
+                    if (cat is null)
+                    {
+                        throw new ArgumentNullException("Cannot write to a null category.");
+                    }
+
+                    if (cat == "ALL") return;
+                    if (msg == "") return;
+
+                    // Why are we checking this?????
+                    KryptonNavigator nav = (Controls["_navigator"] as KryptonNavigator);
+                    if (nav == null) return;
+
+                    // Attempt to add, if already exists then nothing happens
+                    AddPage(cat);
+
+                    // Ensure the 'msg' ends with a newline
+                    msg += msg.EndsWith(Environment.NewLine) ? "" : Environment.NewLine;
+
+                    KryptonRichTextBox rtb1 = (nav.Pages[cat].Controls[cat] as SKKConsolePage).tbRich;
+                    KryptonRichTextBox rtb2 = (nav.Pages["ALL"].Controls["ALL"] as SKKConsolePage).tbRich;
+
+                    // Set selection start to end of current texts in rtb1 & rtb2
+                    rtb1.SelectionStart = rtb1.Text.Length;
+                    rtb2.SelectionStart = rtb2.Text.Length;
+
+                    // Set rtb1's and PageALL's Color and Font to the values in rtb1's dictionary entry
+                    rtb2.SelectionColor = rtb1.SelectionColor = dictData[cat].PageColor;
+                    rtb2.SelectionFont = rtb1.SelectionFont = dictData[cat].PageFont;
+
+                    // Add new text to rtb1 & rtb2
+                    rtb1.AppendText(msg);
+                    rtb2.AppendText(msg);
                 }
-
-                if (cat == "ALL") return;
-                if (msg == "") return;
-
-                // Why are we checking this?????
-                KryptonNavigator nav = (Controls["_navigator"] as KryptonNavigator);
-                if (nav == null) return;
-
-                // Attempt to add, if already exists then nothing happens
-                AddPage(cat);
-
-                // Ensure the 'msg' ends with a newline
-                msg += msg.EndsWith(Environment.NewLine)?"":Environment.NewLine;
-
-                KryptonRichTextBox rtb1 = (nav.Pages[cat].Controls[cat] as SKKConsolePage).tbRich;
-                KryptonRichTextBox rtb2 = (nav.Pages["ALL"].Controls["ALL"] as SKKConsolePage).tbRich;
-
-                // Set selection start to end of current texts in rtb1 & rtb2
-                rtb1.SelectionStart = rtb1.Text.Length;
-                rtb2.SelectionStart = rtb2.Text.Length;
-
-                // Set rtb1's and PageALL's Color and Font to the values in rtb1's dictionary entry
-                rtb2.SelectionColor = rtb1.SelectionColor = dictData[cat].PageColor;
-                rtb2.SelectionFont = rtb1.SelectionFont = dictData[cat].PageFont;
-
-                // Add new text to rtb1 & rtb2
-                rtb1.AppendText(msg);
-                rtb2.AppendText(msg);
             }
         }
         private void SKKConsole_FormClosing(object sender, FormClosingEventArgs e)
