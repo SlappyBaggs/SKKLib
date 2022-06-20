@@ -1,8 +1,6 @@
-﻿using ComponentFactory.Krypton.Toolkit;
-using ComponentFactory.Krypton.Navigator;
-using SKKLib.Console.Config;
+﻿using ComponentFactory.Krypton.Navigator;
 
-namespace SKKLib.Console
+namespace SKKLib.Console.Controls
 {
     partial class SKKConsoleForm
     {

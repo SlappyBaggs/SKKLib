@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using SKKLib.Console.Config;
 using SKKLib.Console.Data;
 
-namespace SKKLib.Console
+namespace SKKLib.Console.Controls
 {
 
     public partial class SKKConsoleForm : KryptonForm
@@ -32,8 +32,8 @@ namespace SKKLib.Console
             //myFont = new Font("Playball", 16.0F);
         }
 #endif
-        internal event ConsoleEvent ConsoleHidden = delegate { };
-        internal event ConsoleEvent ConsoleVisible = delegate { };
+        public event ConsoleEvent ConsoleHidden = delegate { };
+        public event ConsoleEvent ConsoleVisible = delegate { };
 
         private SKKConsole myData_ = null;
         public SKKConsoleForm(SKKConsole data)

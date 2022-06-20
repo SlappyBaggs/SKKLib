@@ -4,6 +4,7 @@ using System.ComponentModel.Design;
 using System.Drawing;
 using SKKLib.Console.Config;
 using SKKLib.Console.Data;
+using SKKLib.Console.Controls;
 
 namespace SKKLib.Console
 {

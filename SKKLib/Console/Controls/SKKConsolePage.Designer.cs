@@ -1,4 +1,4 @@
-﻿namespace SKKLib.Console
+﻿namespace SKKLib.Console.Controls
 {
     partial class SKKConsolePage
     {

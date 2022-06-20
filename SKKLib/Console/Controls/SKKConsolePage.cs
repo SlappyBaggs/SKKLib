@@ -1,11 +1,13 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 
-namespace SKKLib.Console
+namespace SKKLib.Console.Controls
 {
+    [ToolboxItem(false)]
     public partial class SKKConsolePage : UserControl
     {
         public SKKConsolePage() : this("NoName")
