@@ -51,7 +51,7 @@ namespace SKKLib.DB
 
         public DBObSQL(string fileName = null)
         {
-            DBG($"DBObSQL::Constructor: {fileName}");
+            //DBG($"DBObSQL::Constructor: {fileName}");
             if (fileName != null) Load(fileName);
         }
             
@@ -59,7 +59,7 @@ namespace SKKLib.DB
 
         public void Load(string file = null)
         {
-            DBG($"DBObSQL::Load Config File: {file}");
+            //DBG($"DBObSQL::Load Config File: {file}");
             Loaded = false;
             if (file == null) return;
             try
@@ -75,7 +75,7 @@ namespace SKKLib.DB
 
         public void Open(bool ino = false)
         {
-            DBG($"DBObSQL::Open DB, ino={ino}");
+            //DBG($"DBObSQL::Open DB, ino={ino}");
             if (!Loaded) return;    // Throw??
             if (ino && IsOpen) return;     // Throw?
 
@@ -99,7 +99,7 @@ namespace SKKLib.DB
         //public IDataReader ExecuteReader(string sql) => new MySqlCommand(sql, myConn).ExecuteReader();
         public IDataReader ExecuteReader(string sql)
         {
-            DBG($"DBObSQL::ExecuteReader: {sql}");
+            //DBG($"DBObSQL::ExecuteReader: {sql}");
             return new MySqlCommand(sql, myConn).ExecuteReader();
         }
 
@@ -122,7 +122,7 @@ namespace SKKLib.DB
 
         public DBObOdbc(string fileName = null)
         {
-            DBG($"DBobOdbc::Constructor: {fileName}");
+            //DBG($"DBobOdbc::Constructor: {fileName}");
             if (fileName != null) Load(fileName);
         }
 
@@ -130,7 +130,7 @@ namespace SKKLib.DB
 
         public void Load(string file = null)
         {
-            DBG($"DBObOdbc::Load DB {file}");
+            //DBG($"DBObOdbc::Load DB {file}");
             Loaded = false;
             if (file == null) return;
             try
@@ -146,7 +146,7 @@ namespace SKKLib.DB
 
         public void Open(bool ino = false)
         {
-            DBG($"DBObOdbc::Open DB, ino={ino}");
+            //DBG($"DBObOdbc::Open DB, ino={ino}");
             if (!Loaded) return;    // Throw??
             if (ino && IsOpen) return;     // Throw?
 
@@ -170,7 +170,7 @@ namespace SKKLib.DB
         //public IDataReader ExecuteReader(string sql) => new OdbcCommand(sql, myConn).ExecuteReader();
         public IDataReader ExecuteReader(string sql)
         {
-            DBG($"DBObOdbc::ExecuteReader: {sql}");
+            //DBG($"DBObOdbc::ExecuteReader: {sql}");
             return new OdbcCommand(sql, myConn).ExecuteReader();
         }
 

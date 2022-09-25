@@ -115,7 +115,7 @@ namespace Megahard.Networking
 
                 }
             }
-            catch (System.Exception ception)
+            catch //(System.Exception ception)
             {
                 return -1;
             }
@@ -149,7 +149,7 @@ namespace Megahard.Networking
                     return count;
                 }
             }
-            catch (System.Exception ception)
+            catch //(System.Exception ception)
             {
                 return 0;
             }
@@ -195,7 +195,7 @@ namespace Megahard.Networking
                     canRead_.Set();
                 }
             }
-            catch (System.Exception ception)
+            catch //(System.Exception ception)
             {
             
             }
