@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{704A83AE-0729-482A-BFA9-7B5C0F533DA3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Megahard</RootNamespace>
+    <AssemblyName>Megahard.CSharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>megahard.csharp.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Libraries\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Libraries\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.Designer.Interfaces, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.OLE.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.9.0, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.8.0, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop.9.0, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArrayExtender.cs" />
+    <Compile Include="AutoInvoke.cs" />
+    <Compile Include="BindingList.cs" />
+    <Compile Include="Bytes.cs" />
+    <Compile Include="CodeDom.cs" />
+    <Compile Include="Comparer.cs" />
+    <Compile Include="CompileTimeAssert.cs" />
+    <Compile Include="ControlExtender.cs" />
+    <Compile Include="DataBinding.cs" />
+    <Compile Include="DataLink.cs" />
+    <Compile Include="DesignTimeDebugger.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DesignTimeDebugger.Designer.cs">
+      <DependentUpon>DesignTimeDebugger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DesignTimeDebuggerDisplayUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DesignTimeDebuggerDisplayUI.Designer.cs">
+      <DependentUpon>DesignTimeDebuggerDisplayUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DesignTrace.cs" />
+    <Compile Include="DesignUtils.cs" />
+    <Compile Include="DoubleExtender.cs" />
+    <Compile Include="EnhancedTimespanConverter.cs" />
+    <Compile Include="EnumDescConverter.cs" />
+    <Compile Include="EventInfoExtender.cs" />
+    <Compile Include="FontExtender.cs" />
+    <Compile Include="FormExtender.cs" />
+    <Compile Include="FutureValue.cs" />
+    <Compile Include="GenericUtils.cs" />
+    <Compile Include="IEventExecutor.cs" />
+    <Compile Include="IIndexable.cs" />
+    <Compile Include="IJobQueue.cs" />
+    <Compile Include="InterThreadCommunication.cs" />
+    <Compile Include="JobQueue.cs" />
+    <Compile Include="ListViewExtender.cs" />
+    <Compile Include="Measurement.cs" />
+    <Compile Include="MemberInfoExtender.cs" />
+    <Compile Include="ObservableList.cs" />
+    <Compile Include="PointExtender.cs" />
+    <Compile Include="ProgressIndicator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyPath.cs" />
+    <Compile Include="PropertySorter.cs" />
+    <Compile Include="IListTExtensions.cs" />
+    <Compile Include="EnhancedEvent.cs" />
+    <Compile Include="ReflectionUtils.cs" />
+    <Compile Include="SmartTypeConverter.cs" />
+    <Compile Include="StringExtender.cs" />
+    <Compile Include="SynchronizedEventBacking.cs" />
+    <Compile Include="TableLayoutPanelExtender.cs" />
+    <Compile Include="ThreadPool.cs" />
+    <Compile Include="ThreadPoolJobQueue.cs" />
+    <Compile Include="Toggle.cs" />
+    <Compile Include="Trace.cs" />
+    <Compile Include="Tuple.cs" />
+    <Compile Include="TypeExtender.cs" />
+    <Compile Include="WaitHandleExtender.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DesignTimeDebugger.resx">
+      <DependentUpon>DesignTimeDebugger.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DesignTimeDebuggerDisplayUI.resx">
+      <DependentUpon>DesignTimeDebuggerDisplayUI.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

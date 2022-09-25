@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/svnrepository/!svn/ver/1514/Megahard/Megahard.NET/CSharp/Data
+END
+ObservableObject.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/svnrepository/!svn/ver/1382/Megahard/Megahard.NET/CSharp/Data/ObservableObject.cs
+END
+BoundProperty.cs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/svnrepository/!svn/ver/1075/Megahard/Megahard.NET/CSharp/Data/BoundProperty.cs
+END
+ObservablePropertyAttribute.cs
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/svnrepository/!svn/ver/1152/Megahard/Megahard.NET/CSharp/Data/ObservablePropertyAttribute.cs
+END
+StandardValues.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/svnrepository/!svn/ver/1084/Megahard/Megahard.NET/CSharp/Data/StandardValues.cs
+END
+DataBinderEditor.resx
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/svnrepository/!svn/ver/1084/Megahard/Megahard.NET/CSharp/Data/DataBinderEditor.resx
+END
+DataEditor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/svnrepository/!svn/ver/1075/Megahard/Megahard.NET/CSharp/Data/DataEditor.cs
+END
+DataObjectSource.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/svnrepository/!svn/ver/1075/Megahard/Megahard.NET/CSharp/Data/DataObjectSource.Designer.cs
+END
+DataObjectSource.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/svnrepository/!svn/ver/1297/Megahard/Megahard.NET/CSharp/Data/DataObjectSource.cs
+END
+AttachedObserver.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/svnrepository/!svn/ver/1382/Megahard/Megahard.NET/CSharp/Data/AttachedObserver.cs
+END
+ObservableComponent.Transformed.cs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/svnrepository/!svn/ver/1152/Megahard/Megahard.NET/CSharp/Data/ObservableComponent.Transformed.cs
+END
+ListPositionManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/svnrepository/!svn/ver/1382/Megahard/Megahard.NET/CSharp/Data/ListPositionManager.cs
+END
+DataBinder.cs
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/svnrepository/!svn/ver/1084/Megahard/Megahard.NET/CSharp/Data/DataBinder.cs
+END
+ObservableObject.Transformed.cs
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/svnrepository/!svn/ver/1152/Megahard/Megahard.NET/CSharp/Data/ObservableObject.Transformed.cs
+END
+DataObject.cs
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/svnrepository/!svn/ver/1373/Megahard/Megahard.NET/CSharp/Data/DataObject.cs
+END
+PropertyPath.cs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/svnrepository/!svn/ver/1315/Megahard/Megahard.NET/CSharp/Data/PropertyPath.cs
+END
+AVGStability.cs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/svnrepository/!svn/ver/1439/Megahard/Megahard.NET/CSharp/Data/AVGStability.cs
+END
+DataBinderEditor.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/svnrepository/!svn/ver/1084/Megahard/Megahard.NET/CSharp/Data/DataBinderEditor.Designer.cs
+END
+DataBinderEditor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/svnrepository/!svn/ver/1218/Megahard/Megahard.NET/CSharp/Data/DataBinderEditor.cs
+END
+DataBinding.cs
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/svnrepository/!svn/ver/1075/Megahard/Megahard.NET/CSharp/Data/DataBinding.cs
+END
+BindingManager.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/svnrepository/!svn/ver/1075/Megahard/Megahard.NET/CSharp/Data/BindingManager.Designer.cs
+END
+UnboundData.cs
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/svnrepository/!svn/ver/1075/Megahard/Megahard.NET/CSharp/Data/UnboundData.cs
+END
+DataObjectSource.Transformed.cs
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/svnrepository/!svn/ver/1297/Megahard/Megahard.NET/CSharp/Data/DataObjectSource.Transformed.cs
+END
+BindingManager.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/svnrepository/!svn/ver/1084/Megahard/Megahard.NET/CSharp/Data/BindingManager.cs
+END
+BindingList.cs
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/svnrepository/!svn/ver/1382/Megahard/Megahard.NET/CSharp/Data/BindingList.cs
+END
+ObservableComponent.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/svnrepository/!svn/ver/1511/Megahard/Megahard.NET/CSharp/Data/ObservableComponent.cs
+END
+DataBindingInterfaces.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/svnrepository/!svn/ver/1511/Megahard/Megahard.NET/CSharp/Data/DataBindingInterfaces.cs
+END

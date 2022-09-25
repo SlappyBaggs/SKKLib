@@ -1,0 +1,317 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/svnrepository/!svn/ver/1511/Megahard/Megahard.NET/CSharp/Controls
+END
+DataPanel.Transformed.cs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/svnrepository/!svn/ver/1373/Megahard/Megahard.NET/CSharp/Controls/DataPanel.Transformed.cs
+END
+EditableListBox.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Controls/EditableListBox.cs
+END
+LEDControl.resx
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Controls/LEDControl.resx
+END
+DataBox.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/svnrepository/!svn/ver/1355/Megahard/Megahard.NET/CSharp/Controls/DataBox.Designer.cs
+END
+DataBox.cs
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/svnrepository/!svn/ver/1382/Megahard/Megahard.NET/CSharp/Controls/DataBox.cs
+END
+DataBoxLabelEditor.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/svnrepository/!svn/ver/1010/Megahard/Megahard.NET/CSharp/Controls/DataBoxLabelEditor.Designer.cs
+END
+ViewPanel.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/svnrepository/!svn/ver/1152/Megahard/Megahard.NET/CSharp/Controls/ViewPanel.Designer.cs
+END
+DataPanel.cs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/svnrepository/!svn/ver/1373/Megahard/Megahard.NET/CSharp/Controls/DataPanel.cs
+END
+ViewPanel.cs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/svnrepository/!svn/ver/1152/Megahard/Megahard.NET/CSharp/Controls/ViewPanel.cs
+END
+toggle01.bmp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Controls/toggle01.bmp
+END
+ComponentBase.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/svnrepository/!svn/ver/1511/Megahard/Megahard.NET/CSharp/Controls/ComponentBase.cs
+END
+DropDownControl.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/svnrepository/!svn/ver/1152/Megahard/Megahard.NET/CSharp/Controls/DropDownControl.cs
+END
+ToolStripControlHost.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/svnrepository/!svn/ver/1084/Megahard/Megahard.NET/CSharp/Controls/ToolStripControlHost.cs
+END
+CollectionBrowser.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/svnrepository/!svn/ver/1231/Megahard/Megahard.NET/CSharp/Controls/CollectionBrowser.Designer.cs
+END
+StandardDataEditor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/svnrepository/!svn/ver/1354/Megahard/Megahard.NET/CSharp/Controls/StandardDataEditor.cs
+END
+ValueEditorDialog.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Controls/ValueEditorDialog.Designer.cs
+END
+ToggleSwitch.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Controls/ToggleSwitch.Designer.cs
+END
+PropertyTree.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/svnrepository/!svn/ver/1231/Megahard/Megahard.NET/CSharp/Controls/PropertyTree.cs
+END
+DataBoxLabelEditor.resx
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/svnrepository/!svn/ver/1010/Megahard/Megahard.NET/CSharp/Controls/DataBoxLabelEditor.resx
+END
+LEDControl.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/svnrepository/!svn/ver/1178/Megahard/Megahard.NET/CSharp/Controls/LEDControl.cs
+END
+DataObjectEditor.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/svnrepository/!svn/ver/1134/Megahard/Megahard.NET/CSharp/Controls/DataObjectEditor.Designer.cs
+END
+RulerControl.resx
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/svnrepository/!svn/ver/1285/Megahard/Megahard.NET/CSharp/Controls/RulerControl.resx
+END
+CollectionBrowser.resx
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/svnrepository/!svn/ver/1231/Megahard/Megahard.NET/CSharp/Controls/CollectionBrowser.resx
+END
+TypedComboBox.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Controls/TypedComboBox.cs
+END
+ValueEditorDialog.resx
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Controls/ValueEditorDialog.resx
+END
+ToggleSwitch.resx
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Controls/ToggleSwitch.resx
+END
+ToolStripNumericUpDown.cs
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/svnrepository/!svn/ver/1134/Megahard/Megahard.NET/CSharp/Controls/ToolStripNumericUpDown.cs
+END
+CollectionBrowser.Transformed.cs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/svnrepository/!svn/ver/1231/Megahard/Megahard.NET/CSharp/Controls/CollectionBrowser.Transformed.cs
+END
+DataObjectEditor.resx
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/svnrepository/!svn/ver/1074/Megahard/Megahard.NET/CSharp/Controls/DataObjectEditor.resx
+END
+UserControlBase.resx
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/svnrepository/!svn/ver/1084/Megahard/Megahard.NET/CSharp/Controls/UserControlBase.resx
+END
+DataPanel.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/svnrepository/!svn/ver/1354/Megahard/Megahard.NET/CSharp/Controls/DataPanel.Designer.cs
+END
+DataBoxLabelEditor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/svnrepository/!svn/ver/1218/Megahard/Megahard.NET/CSharp/Controls/DataBoxLabelEditor.cs
+END
+RulerControl.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/svnrepository/!svn/ver/1382/Megahard/Megahard.NET/CSharp/Controls/RulerControl.cs
+END
+DropDownControl.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/svnrepository/!svn/ver/1152/Megahard/Megahard.NET/CSharp/Controls/DropDownControl.Designer.cs
+END
+UserControlBase.Transformed.cs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/svnrepository/!svn/ver/1152/Megahard/Megahard.NET/CSharp/Controls/UserControlBase.Transformed.cs
+END
+DataBox.resx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/svnrepository/!svn/ver/995/Megahard/Megahard.NET/CSharp/Controls/DataBox.resx
+END
+CollectionBrowser.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/svnrepository/!svn/ver/1511/Megahard/Megahard.NET/CSharp/Controls/CollectionBrowser.cs
+END
+leds.bmp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Controls/leds.bmp
+END
+ToggleSwitch.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/svnrepository/!svn/ver/1084/Megahard/Megahard.NET/CSharp/Controls/ToggleSwitch.cs
+END
+DataBoxDesigner.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/svnrepository/!svn/ver/1010/Megahard/Megahard.NET/CSharp/Controls/DataBoxDesigner.cs
+END
+ValueEditorDialog.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/svnrepository/!svn/ver/1010/Megahard/Megahard.NET/CSharp/Controls/ValueEditorDialog.cs
+END
+LEDControl.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Controls/LEDControl.Designer.cs
+END
+DataPanel.resx
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/svnrepository/!svn/ver/1354/Megahard/Megahard.NET/CSharp/Controls/DataPanel.resx
+END
+DataBox.Transformed.cs
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/svnrepository/!svn/ver/1382/Megahard/Megahard.NET/CSharp/Controls/DataBox.Transformed.cs
+END
+ViewPanel.resx
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/svnrepository/!svn/ver/1152/Megahard/Megahard.NET/CSharp/Controls/ViewPanel.resx
+END
+DataObjectEditor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/svnrepository/!svn/ver/1218/Megahard/Megahard.NET/CSharp/Controls/DataObjectEditor.cs
+END
+MegahardControl.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/svnrepository/!svn/ver/1134/Megahard/Megahard.NET/CSharp/Controls/MegahardControl.cs
+END
+MegaLabel.cs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/svnrepository/!svn/ver/1355/Megahard/Megahard.NET/CSharp/Controls/MegaLabel.cs
+END
+DataLabel.cs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/svnrepository/!svn/ver/1354/Megahard/Megahard.NET/CSharp/Controls/DataLabel.cs
+END
+UserControlBase.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/svnrepository/!svn/ver/1134/Megahard/Megahard.NET/CSharp/Controls/UserControlBase.Designer.cs
+END
+LabelBase.cs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Controls/LabelBase.cs
+END
+UserControlBase.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/svnrepository/!svn/ver/1382/Megahard/Megahard.NET/CSharp/Controls/UserControlBase.cs
+END

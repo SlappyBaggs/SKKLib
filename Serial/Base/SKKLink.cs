@@ -16,6 +16,9 @@ namespace SKKLib.Serial.Base
         private ISKKReader reader_;
         private ISKKWriter writer_;
         private ISKKSerialPort serialPort_;
+        private string lastWrite = "";
+
+        public string LastWrite { get => lastWrite; }
 
         private Object myLock = new Object();
 
@@ -38,7 +41,7 @@ namespace SKKLib.Serial.Base
             }
         }
 
-        private void SendData(string msg) => writer_.SendMessage(msg, MacID);
+        private void SendData(string msg) => writer_.SendMessage(lastWrite = msg, MacID);
 
         private string GetData() => reader_.ReadMessage(MacID);
 

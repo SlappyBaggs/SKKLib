@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/svnrepository/!svn/ver/1513/Megahard/Megahard.NET/CSharp/ComponentModel
+END
+CustomTypeDescriptor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/svnrepository/!svn/ver/1014/Megahard/Megahard.NET/CSharp/ComponentModel/CustomTypeDescriptor.cs
+END
+EnumDescConverter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/svnrepository/!svn/ver/1014/Megahard/Megahard.NET/CSharp/ComponentModel/EnumDescConverter.cs
+END
+IndexPropertyDescriptor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/svnrepository/!svn/ver/1152/Megahard/Megahard.NET/CSharp/ComponentModel/IndexPropertyDescriptor.cs
+END
+CompositeTypeConverter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/svnrepository/!svn/ver/1013/Megahard/Megahard.NET/CSharp/ComponentModel/CompositeTypeConverter.cs
+END
+ChangePropertyType.cs
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/svnrepository/!svn/ver/1513/Megahard/Megahard.NET/CSharp/ComponentModel/ChangePropertyType.cs
+END
+TypeDescriptionProvider.cs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/svnrepository/!svn/ver/1480/Megahard/Megahard.NET/CSharp/ComponentModel/TypeDescriptionProvider.cs
+END
+StandardValueAttribute.cs
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/svnrepository/!svn/ver/1152/Megahard/Megahard.NET/CSharp/ComponentModel/StandardValueAttribute.cs
+END
+ChainingPropertyDescriptor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/svnrepository/!svn/ver/1480/Megahard/Megahard.NET/CSharp/ComponentModel/ChainingPropertyDescriptor.cs
+END
+TypeDescriptorContext.cs
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/svnrepository/!svn/ver/1014/Megahard/Megahard.NET/CSharp/ComponentModel/TypeDescriptorContext.cs
+END
+WrappedPropertyDescriptor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/svnrepository/!svn/ver/1354/Megahard/Megahard.NET/CSharp/ComponentModel/WrappedPropertyDescriptor.cs
+END
+ProvideAdditionalAttributes.cs
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/svnrepository/!svn/ver/1084/Megahard/Megahard.NET/CSharp/ComponentModel/ProvideAdditionalAttributes.cs
+END
+StandardValuesConverter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/svnrepository/!svn/ver/1084/Megahard/Megahard.NET/CSharp/ComponentModel/StandardValuesConverter.cs
+END

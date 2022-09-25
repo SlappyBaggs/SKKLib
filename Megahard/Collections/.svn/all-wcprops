@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/svnrepository/!svn/ver/1511/Megahard/Megahard.NET/CSharp/Collections
+END
+Collection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/svnrepository/!svn/ver/1382/Megahard/Megahard.NET/CSharp/Collections/Collection.cs
+END
+ListSlice.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/svnrepository/!svn/ver/1382/Megahard/Megahard.NET/CSharp/Collections/ListSlice.cs
+END
+BytesBuilder.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/svnrepository/!svn/ver/1074/Megahard/Megahard.NET/CSharp/Collections/BytesBuilder.cs
+END
+ImmutableArray.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/svnrepository/!svn/ver/1259/Megahard/Megahard.NET/CSharp/Collections/ImmutableArray.cs
+END
+ReadOnlyObservableList.cs
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/svnrepository/!svn/ver/1511/Megahard/Megahard.NET/CSharp/Collections/ReadOnlyObservableList.cs
+END
+ObservableList.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/svnrepository/!svn/ver/1511/Megahard/Megahard.NET/CSharp/Collections/ObservableList.cs
+END
+CollectionChangeEventArgs.cs
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/svnrepository/!svn/ver/1511/Megahard/Megahard.NET/CSharp/Collections/CollectionChangeEventArgs.cs
+END
+IIndexable.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/svnrepository/!svn/ver/1074/Megahard/Megahard.NET/CSharp/Collections/IIndexable.cs
+END
+Bytes.cs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/svnrepository/!svn/ver/1382/Megahard/Megahard.NET/CSharp/Collections/Bytes.cs
+END
+ImmutabableArrayBuilder.cs
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/svnrepository/!svn/ver/1425/Megahard/Megahard.NET/CSharp/Collections/ImmutabableArrayBuilder.cs
+END
+ReadOnlyCollection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/svnrepository/!svn/ver/1382/Megahard/Megahard.NET/CSharp/Collections/ReadOnlyCollection.cs
+END
+ReadOnlyListSlice.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/svnrepository/!svn/ver/1382/Megahard/Megahard.NET/CSharp/Collections/ReadOnlyListSlice.cs
+END

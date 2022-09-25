@@ -1,0 +1,154 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+
+namespace Megahard.Data
+{
+    public class AVGStability
+    {
+        public delegate void AVGTickHandler(object o, EventArgs e);
+        public event AVGTickHandler AVGStabilityTick;
+        public event AVGTickHandler AVGTick;
+
+        public AVGStability()
+        {
+            Tolerance = 0.01;
+            AvgTime = 5;
+
+            myTimer = new System.Windows.Forms.Timer();
+            myTimer.Interval = 500;
+            myTimer.Tick += new EventHandler(TimerTick);
+            Reset();
+            values = new List<double>();
+        }
+
+        public void Start()
+        {
+            myTimer.Start();
+            Reset();
+            OnTick();
+        }
+
+        public void Stop()
+        {
+            myTimer.Stop();
+            Reset();
+            OnTick();
+        }
+
+        public int TimerInterval
+        {
+            get { return myTimer.Interval; }
+            set { myTimer.Interval = value; }
+        }
+
+        private void Reset()
+        {
+            _stable = false;
+            _currentAverage = 0.0;
+            avgCount = AvgTime * 1000;
+        }
+
+        private void OnTick()
+        {
+            if (myTimer.Enabled && AVGTick != null)
+                AVGTick(this, EventArgs.Empty);
+        }
+
+        private void OnAvg()
+        {
+            if (myTimer.Enabled && AVGStabilityTick != null)
+                AVGStabilityTick(this, EventArgs.Empty);
+        }
+
+        Megahard.Threading.SyncLock curValLock_ = new Megahard.Threading.SyncLock();
+        public void AddValue(double d)
+        {
+            using(curValLock_.Lock())
+                values.Add(_currentValue = d);
+        }
+
+        private void TimerTick(object o, EventArgs a)
+        {
+            // If we have a poll function, call it...
+            if (PollFunc != null)
+                AddValue(PollFunc());
+            avgCount -= TimerInterval;
+            if (avgCount <= 0)
+            {
+                avgCount = AvgTime * 1000;
+                if (values.Count == 0)
+                {
+                    _currentAverage = 0.0;
+                    OnTick();
+                    OnAvg();
+                    return;
+                }
+                double tot = 0.0;
+                double min = 0xffffffff;
+                double max = -0xffffffff;
+                
+                foreach (double d in values)
+                {
+                    tot += d;
+                    if (d < min) min = d;
+                    if (d > max) max = d;
+                }
+                _currentAverage = tot / values.Count;
+                values.Clear();
+
+                _currentDiff = max - min;
+                _stable = CurrentDiff <= Tolerance;
+                OnAvg();
+            }
+
+            OnTick();
+        }
+
+        public Func<double> PollFunc;
+
+        public double Tolerance { get; set; }
+        public int AvgTime { get; set; }
+
+        private bool _stable;
+        public bool Stable { get { return _stable; } }
+
+        private double _currentAverage;
+        public double CurrentAverage { get { return _currentAverage; } }
+
+        private double _currentValue;
+        public double CurrentValue 
+        { 
+            get 
+            { 
+                using(curValLock_.Lock())
+                    return _currentValue; 
+            } 
+        }
+
+        private double _currentDiff;
+        public double CurrentDiff { get { return _currentDiff; } }
+
+        private int avgCount;
+        public int UpdateTime
+        {
+            get
+            {
+                int ret;
+                double d = ((double)avgCount + 999.0) / 1000.0;
+                ret = (int)d;
+                if(ret == 0)
+                {
+                    int c = 5;
+                    c++;
+                }
+                return ret;
+            }
+        }
+
+        private System.Windows.Forms.Timer myTimer;
+        private List<double> values;
+    }
+}

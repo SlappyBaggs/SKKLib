@@ -1,0 +1,45 @@
+﻿using ComponentFactory.Krypton.Toolkit;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+
+namespace Megahard.Data.Visualization
+{
+	partial class NumericUpDownVisualizer
+	{
+		private KryptonNumericUpDown numericUpDown_;
+		
+
+		private void InitializeComponent()
+		{
+			this.numericUpDown_ = new KryptonNumericUpDown();
+			((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// numericUpDown_
+			// 
+			this.numericUpDown_.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.numericUpDown_.Location = new System.Drawing.Point(0, 0);
+			this.numericUpDown_.Name = "numericUpDown_";
+			this.numericUpDown_.Size = new System.Drawing.Size(66, 22);
+			this.numericUpDown_.TabIndex = 0;
+			this.numericUpDown_.ValueChanged += new System.EventHandler(this.numericUpDown__ValueChanged);
+			// 
+			// NumericUpDownVisualizer
+			// 
+			this.Controls.Add(this.numericUpDown_);
+			this.MaximumSize = new System.Drawing.Size(0, 22);
+			this.MinimumSize = new System.Drawing.Size(35, 22);
+			this.Name = "NumericUpDownVisualizer";
+			this.Size = new System.Drawing.Size(66, 22);
+			((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+			this.ResumeLayout(false);
+
+        }
+
+	}
+}

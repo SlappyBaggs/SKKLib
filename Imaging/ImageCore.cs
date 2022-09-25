@@ -4,7 +4,7 @@ using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using SKKLib.Handlers.Win32;
-using RGiesecke.DllExport;
+//using RGiesecke.DllExport;
 
 namespace SKKLib.Imaging
 {
@@ -89,15 +89,13 @@ namespace SKKLib.Imaging
 
         public static Color GetColorFromScreen(Point p) => GetColorFromScreen(p.X, p.Y);
         
+/*
         [DllExport()]
         public static Int32 GetColFromScr(int x, int y) => GetColorFromScreen(x, y).ToArgb();
 
         [DllExport()]
         public static Color GetColorFromScreenPY(int x, int y) => GetColorFromScreen(x, y);
-
-        [DllExport()]
-        public static string YourMother() => "Your mother!";
-
+*/
         public static Color GetColorFromScreen(int x, int y)
         {
 #if BADONGO

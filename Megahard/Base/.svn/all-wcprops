@@ -1,0 +1,245 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/svnrepository/!svn/ver/1480/Megahard/Megahard.NET/CSharp/Base
+END
+ArrayExtender.cs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/svnrepository/!svn/ver/1288/Megahard/Megahard.NET/CSharp/Base/ArrayExtender.cs
+END
+IResetable.cs
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/svnrepository/!svn/ver/1373/Megahard/Megahard.NET/CSharp/Base/IResetable.cs
+END
+DesignTimeDebuggerDisplayUI.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/svnrepository/!svn/ver/1134/Megahard/Megahard.NET/CSharp/Base/DesignTimeDebuggerDisplayUI.Designer.cs
+END
+Megahard.CSharp.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Base/Megahard.CSharp.csproj
+END
+PropertySorter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/svnrepository/!svn/ver/1170/Megahard/Megahard.NET/CSharp/Base/PropertySorter.cs
+END
+EquatableExtensions.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/svnrepository/!svn/ver/1288/Megahard/Megahard.NET/CSharp/Base/EquatableExtensions.cs
+END
+Measurement.cs
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/svnrepository/!svn/ver/1289/Megahard/Megahard.NET/CSharp/Base/Measurement.cs
+END
+StandardPositionEnums.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/svnrepository/!svn/ver/1289/Megahard/Megahard.NET/CSharp/Base/StandardPositionEnums.cs
+END
+SmartCompare.cs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/svnrepository/!svn/ver/1009/Megahard/Megahard.NET/CSharp/Base/SmartCompare.cs
+END
+DesignTimeDebugger.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/svnrepository/!svn/ver/1084/Megahard/Megahard.NET/CSharp/Base/DesignTimeDebugger.cs
+END
+DesignTimeDebuggerDisplayUI.resx
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Base/DesignTimeDebuggerDisplayUI.resx
+END
+Trace.cs
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Base/Trace.cs
+END
+EnhancedTimespanConverter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Base/EnhancedTimespanConverter.cs
+END
+DIODES.TTF
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Base/DIODES.TTF
+END
+PlatformInvoke.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/svnrepository/!svn/ver/1231/Megahard/Megahard.NET/CSharp/Base/PlatformInvoke.cs
+END
+ProgressIndicator.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Base/ProgressIndicator.cs
+END
+ListViewExtender.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/svnrepository/!svn/ver/1425/Megahard/Megahard.NET/CSharp/Base/ListViewExtender.cs
+END
+WeakReference.cs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/svnrepository/!svn/ver/1084/Megahard/Megahard.NET/CSharp/Base/WeakReference.cs
+END
+IEventExecutor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/svnrepository/!svn/ver/1480/Megahard/Megahard.NET/CSharp/Base/IEventExecutor.cs
+END
+ReflectionUtils.cs
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/svnrepository/!svn/ver/1152/Megahard/Megahard.NET/CSharp/Base/ReflectionUtils.cs
+END
+reslocator.cs
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Base/reslocator.cs
+END
+PrecisionAttribute.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/svnrepository/!svn/ver/1170/Megahard/Megahard.NET/CSharp/Base/PrecisionAttribute.cs
+END
+SmartTypeConverter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/svnrepository/!svn/ver/1361/Megahard/Megahard.NET/CSharp/Base/SmartTypeConverter.cs
+END
+Toggle.cs
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/svnrepository/!svn/ver/1134/Megahard/Megahard.NET/CSharp/Base/Toggle.cs
+END
+DesignTimeDebuggerDisplayUI.cs
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/svnrepository/!svn/ver/1084/Megahard/Megahard.NET/CSharp/Base/DesignTimeDebuggerDisplayUI.cs
+END
+WindowsMessages.cs
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/svnrepository/!svn/ver/1231/Megahard/Megahard.NET/CSharp/Base/WindowsMessages.cs
+END
+Disposer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/svnrepository/!svn/ver/1231/Megahard/Megahard.NET/CSharp/Base/Disposer.cs
+END
+DesignTrace.cs
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/svnrepository/!svn/ver/1134/Megahard/Megahard.NET/CSharp/Base/DesignTrace.cs
+END
+CompileTimeAssert.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Base/CompileTimeAssert.cs
+END
+DesignUtils.cs
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/svnrepository/!svn/ver/1480/Megahard/Megahard.NET/CSharp/Base/DesignUtils.cs
+END
+StreamExtender.cs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/svnrepository/!svn/ver/1480/Megahard/Megahard.NET/CSharp/Base/StreamExtender.cs
+END
+DesignTimeDebugger.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Base/DesignTimeDebugger.Designer.cs
+END
+GenericUtils.cs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/svnrepository/!svn/ver/1152/Megahard/Megahard.NET/CSharp/Base/GenericUtils.cs
+END
+SynchronizedEventBacking.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/svnrepository/!svn/ver/1134/Megahard/Megahard.NET/CSharp/Base/SynchronizedEventBacking.cs
+END
+TableLayoutPanelExtender.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/svnrepository/!svn/ver/1152/Megahard/Megahard.NET/CSharp/Base/TableLayoutPanelExtender.cs
+END
+EnhancedEvent.cs
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Base/EnhancedEvent.cs
+END
+Comparer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/svnrepository/!svn/ver/1152/Megahard/Megahard.NET/CSharp/Base/Comparer.cs
+END
+DesignTimeDebugger.resx
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/svnrepository/!svn/ver/970/Megahard/Megahard.NET/CSharp/Base/DesignTimeDebugger.resx
+END
+Parse.cs
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/svnrepository/!svn/ver/1152/Megahard/Megahard.NET/CSharp/Base/Parse.cs
+END
+CodeDom.cs
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/svnrepository/!svn/ver/1152/Megahard/Megahard.NET/CSharp/Base/CodeDom.cs
+END

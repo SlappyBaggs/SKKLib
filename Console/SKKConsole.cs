@@ -10,6 +10,8 @@ namespace SKKLib.Console
 {
     public partial class SKKConsole : Component
     {
+        public static void DBG(string s) => System.Console.WriteLine(s);
+
         public void Break()
         {
             System.Diagnostics.Debugger.Break();

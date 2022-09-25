@@ -1,0 +1,41 @@
+﻿This is a quick overview of the way the serializer saves stuff:
+
+Key element types:
+	Properties
+	Items
+	Value
+	Null
+	
+
+Key Attributes:
+	Type
+	
+
+
+Deserialize
+	Supply an XElement and it returns an object depending on the element
+
+	if the element has no type attribute and no child elements, then value of the element as a string is returned
+	
+
+
+Element that can be deserialized to an object must have:
+	- Type attribute - creates an ob of that type
+	- Value - if no type attribute, but a value is in the element, returns that value as a string
+	- No type and no value, then returns null
+
+
+Deserialization can happen standalone or within a context
+-Standalone means the object is to be created an serialized only from data contained in the supplied xelement
+-context means the object is deserialized using information from the supplied xelement and data from elsewhere
+
+Standalone (args: XElement)
+----------
+If XElement does not have a Type attribute it is deserialized as a string using the Value of the XElement, if Value is empty it is deserialized as Null
+If it does have a Type, then an instance of the type is created and then deserialization proceedes
+
+SerializeInto (args: XElement, object)
+-------------------------------------
+Deserializes data into the supplied object instance
+Type attribute is ignored
+

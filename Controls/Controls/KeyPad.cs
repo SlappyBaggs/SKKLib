@@ -50,7 +50,7 @@ namespace SKKLib.Controls.Controls
         #endregion
 
         #region EVENTS
-        public event KeyPadButtonPressedHandler KeyPadButtonPressed;
+        //public event KeyPadButtonPressedHandler KeyPadButtonPressed;
         public event KeyPadShowDisplayHandler KeyPadShowDisplay;
         public event KeyPadShowControlKeysHandler KeyPadShowControlKeys;
         public event KeyPadShowOKKeyHandler KeyPadShowOKKey;
