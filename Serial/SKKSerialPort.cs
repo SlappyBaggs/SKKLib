@@ -43,38 +43,38 @@ namespace SKKLib.Serial
         #endregion
 
         #region EVENTS
-        public event SKKPortDataReceived_EH SKKPortDataReceivedEvent;
-        private void DataReceivedFromPort(System.IO.Ports.SerialDataReceivedEventArgs args) { if (SKKPortDataReceivedEvent != null) SKKPortDataReceivedEvent(args); }
+        public event SKKPortDataReceived_EH SKKPortDataReceivedEvent = delegate { };
+        private void DataReceivedFromPort(System.IO.Ports.SerialDataReceivedEventArgs args) { SKKPortDataReceivedEvent(args); }
 
-        public event SKKPortOpenedClosed_EH SKKPortOpenedClosedEvent;
-        private void OnPortOpenedClosed(OpenedClosed oc) { if (SKKPortOpenedClosedEvent != null) SKKPortOpenedClosedEvent(oc); }
+        public event SKKPortOpenedClosed_EH SKKPortOpenedClosedEvent = delegate { };
+        private void OnPortOpenedClosed(OpenedClosed oc) { SKKPortOpenedClosedEvent(oc); }
 
-        public event SKKPortHandshakeChanged_EH SKKPortHandshakeChangedEvent;
-        private void OnPortHandshakeChanged(Handshake hs) { if (SKKPortHandshakeChangedEvent != null) SKKPortHandshakeChangedEvent(hs); }
+        public event SKKPortHandshakeChanged_EH SKKPortHandshakeChangedEvent = delegate { };
+        private void OnPortHandshakeChanged(Handshake hs) { SKKPortHandshakeChangedEvent(hs); }
 
-        public event SKKPortDTREnableChanged_EH SKKPortDTREnableChangedEvent;
-        private void OnPortDTREnableChanged(bool b) { if (SKKPortDTREnableChangedEvent != null) SKKPortDTREnableChangedEvent(b); }
+        public event SKKPortDTREnableChanged_EH SKKPortDTREnableChangedEvent = delegate { };
+        private void OnPortDTREnableChanged(bool b) { SKKPortDTREnableChangedEvent(b); }
 
-        public event SKKPortRTSEnableChanged_EH SKKPortRTSEnableChangedEvent;
-        private void OnPortRTSEnableChanged(bool b) { if (SKKPortRTSEnableChangedEvent != null) SKKPortRTSEnableChangedEvent(b); }
+        public event SKKPortRTSEnableChanged_EH SKKPortRTSEnableChangedEvent = delegate { };
+        private void OnPortRTSEnableChanged(bool b) { SKKPortRTSEnableChangedEvent(b); }
 
-        public event SKKPortReadTimeoutChanged_EH SKKPortReadTimeoutChangedEvent;
-        private void OnPortReadTimeoutChanged(int i) { if (SKKPortReadTimeoutChangedEvent != null) SKKPortReadTimeoutChangedEvent(i); }
+        public event SKKPortReadTimeoutChanged_EH SKKPortReadTimeoutChangedEvent = delegate { };
+        private void OnPortReadTimeoutChanged(int i) { SKKPortReadTimeoutChangedEvent(i); }
 
-        public event SKKPortPortNameChanged_EH SKKPortPortNameChangedEvent;
-        private void OnPortPortNameChanged(string n) { if (SKKPortPortNameChangedEvent != null) SKKPortPortNameChangedEvent(n); }
+        public event SKKPortPortNameChanged_EH SKKPortPortNameChangedEvent = delegate { };
+        private void OnPortPortNameChanged(string n) { SKKPortPortNameChangedEvent(n); }
 
-        public event SKKPortBaudRateChanged_EH SKKPortBaudRateChangedEvent;
-        private void OnPortBaudRateChanged(BaudRate br) { if (SKKPortBaudRateChangedEvent != null) SKKPortBaudRateChangedEvent(br); }
+        public event SKKPortBaudRateChanged_EH SKKPortBaudRateChangedEvent = delegate { };
+        private void OnPortBaudRateChanged(BaudRate br) { SKKPortBaudRateChangedEvent(br); }
 
-        public event SKKPortDataBitsChanged_EH SKKPortDataBitsChangedEvent;
-        private void OnPortDataBitsChanged(DataBits db) { if (SKKPortDataBitsChangedEvent != null) SKKPortDataBitsChangedEvent(db); }
+        public event SKKPortDataBitsChanged_EH SKKPortDataBitsChangedEvent = delegate { };
+        private void OnPortDataBitsChanged(DataBits db) { SKKPortDataBitsChangedEvent(db); }
 
-        public event SKKPortParityChanged_EH SKKPortParityChangedEvent;
-        private void OnPortParityChanged(Parity p) { if (SKKPortParityChangedEvent != null) SKKPortParityChangedEvent(p); }
+        public event SKKPortParityChanged_EH SKKPortParityChangedEvent = delegate { };
+        private void OnPortParityChanged(Parity p) { SKKPortParityChangedEvent(p); }
 
-        public event SKKPortStopBitsChanged_EH SKKPortStopBitsChangedEvent;
-        private void OnPortStopBitsChanged(StopBits sb) { if (SKKPortStopBitsChangedEvent != null) SKKPortStopBitsChangedEvent(sb); }
+        public event SKKPortStopBitsChanged_EH SKKPortStopBitsChangedEvent = delegate { };
+        private void OnPortStopBitsChanged(StopBits sb) { SKKPortStopBitsChangedEvent(sb); }
         #endregion
 
         #region PROPERTIES

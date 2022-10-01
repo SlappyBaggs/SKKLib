@@ -1,47 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Diagnostics;
-using static SKKLib.Console.SKKConsole;
 
 namespace SKKLib.SystemLib
 {
     public class SKKBench : IDisposable
     {
-        public static SKKBench Get(string name, bool annoStart = false) => new SKKBench(name, annoStart);
-        public static int Threshold = 250;
+        /*
+         * name - name of BenchMark that just started
+         * depth - depth of recursion at bench's start (not including their effect to the depth)
+         * annoStart - does bench want it's start announced? (holdover from previous implementation)
+         */
+        public delegate void SKKBenchStartHandler(string name, int depth, bool annoStart);
+        public static event SKKBenchStartHandler BenchStart = delegate { };
+
+        /*
+         * name - name of BenchMark that just ended
+         * depth - depth of recursion at bench's end (not including their effect to the depth)
+         * ms - time in milliseconds of bench's life
+         */
+        public delegate void SKKBenchDoneHandler(string name, int depth, long ms);
+        public static event SKKBenchDoneHandler BenchDone = delegate { };
+
+        public static SKKBench Get(string name, bool annoStart = true) => new SKKBench(name, annoStart);
 
         private readonly Stopwatch watch = new Stopwatch();
         private readonly string benchName;
-        private static int _depthI = 0;
-        private static int depthI
-        {
-            get => _depthI;
-            set
-            {
-                _depthI = value;
-                depthS = new StringBuilder(depthVal.Length * depthI).Insert(0, depthVal, depthI).ToString();
-            }
-        }
-        private static string depthS = "";
-        private const string depthVal = "  ";
+        private static int depth =  0;
 
-        public SKKBench(string name, bool annoStart = false)
+        private SKKBench(string name, bool annoStart = true)
         {
             benchName = name;
-            if (annoStart) DBG($"SKKBenchMark: {depthS}{benchName} starting");
+            BenchStart(name, depth, annoStart);
             watch.Start();
-            depthI++;
+            depth++;
         }
 
         public void Dispose()
         {
             watch.Stop();
-            depthI--;
-            string warn = (watch.ElapsedMilliseconds < Threshold) ? "" : "!!THRESHOLD WARNING!!";
-            DBG($"SKKBenchMark: {warn}{depthS}{benchName} {watch.ElapsedMilliseconds} ms");
+            depth--;
+            BenchDone(benchName, depth, watch.ElapsedMilliseconds);
         }
     }
 }

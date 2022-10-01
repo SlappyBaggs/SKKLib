@@ -670,7 +670,8 @@
     <Compile Include="State\State.cs" />
     <Compile Include="StringEncrypt\SKKStringEncrypt.cs" />
     <Compile Include="SystemLib\Bench.cs" />
-    <Compile Include="SystemLib\System.cs" />
+    <Compile Include="TCP\Client.cs" />
+    <Compile Include="TCP\Server.cs" />
     <Compile Include="TypeConverters\EnumTypeDescriptor.cs" />
     <None Include="Megahard\Base\DIODES.TTF" />
   </ItemGroup>

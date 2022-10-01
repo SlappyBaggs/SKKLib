@@ -6,6 +6,7 @@ using System.Data.Odbc;
 using System.Data;
 using System.Data.Common;
 using static SKKLib.Console.SKKConsole;
+using SKKLib.SystemLib;
 
 namespace SKKLib.DB
 {
@@ -51,46 +52,52 @@ namespace SKKLib.DB
 
         public DBObSQL(string fileName = null)
         {
-            //DBG($"DBObSQL::Constructor: {fileName}");
-            if (fileName != null) Load(fileName);
+            using (var bench = SKKBench.Get("SKKLib.DBobSQL.Constructor"))
+            {
+                if (fileName != null) Load(fileName);
+            }
         }
-            
+
         public string MyConnString { get => myDB?.ConnectionString; }
 
         public void Load(string file = null)
         {
-            //DBG($"DBObSQL::Load Config File: {file}");
-            Loaded = false;
-            if (file == null) return;
-            try
+            using (var bench = SKKBench.Get($"SKKLib.DBObSQL.Load({file}"))
             {
-                myDB = JsonConvert.DeserializeObject<DBSettings>(File.ReadAllText(file));
+                //DBG($"DBObSQL::Load Config File: {file}");
+                Loaded = false;
+                if (file == null) return;
+                try
+                {
+                    myDB = JsonConvert.DeserializeObject<DBSettings>(File.ReadAllText(file));
+                }
+                catch
+                {
+                    return;
+                }
+                Loaded = true;
             }
-            catch
-            {
-                return;                
-            }
-            Loaded = true;
         }
 
         public void Open(bool ino = false)
         {
-            //DBG($"DBObSQL::Open DB, ino={ino}");
-            if (!Loaded) return;    // Throw??
-            if (ino && IsOpen) return;     // Throw?
+            using (var bench = SKKBench.Get("SKKLib.DBObSQL.Open", false))
+            {
+                if (!Loaded) return;    // Throw??
+                if (ino && IsOpen) return;     // Throw?
 
-            try
-            {
-                myConn = new MySqlConnection(myDB.ConnectionString);
-                myConn.Open();
-            }
-            catch(Exception ex)
-            {
-                SKKLib.Controls.Forms.MessageBox.ShowMessage(ex.Message, "Exception");
-                return;
+                try
+                {
+                    myConn = new MySqlConnection(myDB.ConnectionString);
+                    myConn.Open();
+                }
+                catch (Exception ex)
+                {
+                    Controls.Forms.MessageBox.ShowMessage(ex.Message, "Exception");
+                    return;
+                }
             }
         }
-
         public void Close() => myConn?.Close();
 
         public void ExecuteSql(string sql) => new MySqlCommand(sql, myConn).ExecuteNonQuery();
@@ -118,48 +125,54 @@ namespace SKKLib.DB
 
         public bool Loaded { get; private set; } = false;
         
-        public bool IsOpen { get => myConn?.State == System.Data.ConnectionState.Open; }
+        public bool IsOpen { get => myConn?.State == ConnectionState.Open; }
 
         public DBObOdbc(string fileName = null)
         {
-            //DBG($"DBobOdbc::Constructor: {fileName}");
-            if (fileName != null) Load(fileName);
+            using (var bench = SKKBench.Get("SKKLib.DBobOdbc.Constructor"))
+            {
+                if (fileName != null) Load(fileName);
+            }
         }
 
         public string MyConnString { get => myDB?.ConnectionString; }
 
         public void Load(string file = null)
         {
-            //DBG($"DBObOdbc::Load DB {file}");
-            Loaded = false;
-            if (file == null) return;
-            try
+            using (var bench = SKKBench.Get($"SKKLib.DBObOdbc.Load({file}", false))
             {
-                myDB = JsonConvert.DeserializeObject<DBSettings>(File.ReadAllText(file));
+                Loaded = false;
+                if (file == null) return;
+                try
+                {
+                    myDB = JsonConvert.DeserializeObject<DBSettings>(File.ReadAllText(file));
+                }
+                catch
+                {
+                    return;
+                }
+                Loaded = true;
             }
-            catch
-            {
-                return;
-            }
-            Loaded = true;
         }
 
         public void Open(bool ino = false)
         {
-            //DBG($"DBObOdbc::Open DB, ino={ino}");
-            if (!Loaded) return;    // Throw??
-            if (ino && IsOpen) return;     // Throw?
+            //using (var bench = SKKBench.Get("SKKLib.DBObOdbc.Open", false))
+            //{
+                if (!Loaded) return;    // Throw??
+                if (ino && IsOpen) return;     // Throw?
 
-            try
-            {
-                myConn = new OdbcConnection(myDB.ConnectionString);
-                myConn.Open();
-            }
-            catch (Exception ex)
-            {
-                SKKLib.Controls.Forms.MessageBox.ShowMessage(ex.Message, "Exception");
-                return;
-            }
+                try
+                {
+                    myConn = new OdbcConnection(myDB.ConnectionString);
+                    myConn.Open();
+                }
+                catch (Exception ex)
+                {
+                    Controls.Forms.MessageBox.ShowMessage(ex.Message, "Exception");
+                    return;
+                }
+            //}
         }
 
         public void Close() => myConn?.Close();
