@@ -8,9 +8,20 @@ using SKKLib.Serial.Data;
 
 namespace SKKLib.Serial
 {
+    /// <summary>
+    /// The s k k serial port.
+    /// </summary>
     public class SKKSerialPort : Interface.ISKKSerialPort
     {
         #region CONSTRUCTOR
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SKKSerialPort"/> class.
+        /// </summary>
+        /// <param name="pn">The pn.</param>
+        /// <param name="br">The br.</param>
+        /// <param name="db">The db.</param>
+        /// <param name="p">The p.</param>
+        /// <param name="sb">The sb.</param>
         public SKKSerialPort(
             String pn = SerialPortDefaults.PortName,
             BaudRate br = SerialPortDefaults.BaudRate,
@@ -44,10 +55,18 @@ namespace SKKLib.Serial
 
         #region EVENTS
         public event SKKPortDataReceived_EH SKKPortDataReceivedEvent = delegate { };
-        private void DataReceivedFromPort(System.IO.Ports.SerialDataReceivedEventArgs args) { SKKPortDataReceivedEvent(args); }
+        /// <summary>
+        /// Data the received from port.
+        /// </summary>
+        /// <param name="args">The args.</param>
+        private void DataReceivedFromPort(System.IO.Ports.SerialDataReceivedEventArgs args) => SKKPortDataReceivedEvent(args);
 
         public event SKKPortOpenedClosed_EH SKKPortOpenedClosedEvent = delegate { };
-        private void OnPortOpenedClosed(OpenedClosed oc) { SKKPortOpenedClosedEvent(oc); }
+        /// <summary>
+        /// Ons the port opened closed.
+        /// </summary>
+        /// <param name="oc">The oc.</param>
+        private void OnPortOpenedClosed(OpenedClosed oc) => SKKPortOpenedClosedEvent(oc);
 
         public event SKKPortHandshakeChanged_EH SKKPortHandshakeChangedEvent = delegate { };
         private void OnPortHandshakeChanged(Handshake hs) { SKKPortHandshakeChangedEvent(hs); }
@@ -85,6 +104,9 @@ namespace SKKLib.Serial
             set => port_.Handshake = value;
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether d t r enable.
+        /// </summary>
         [DefaultValue(SerialPortDefaults.DTREnable)]
         public bool DTREnable
         {
