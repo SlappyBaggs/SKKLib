@@ -20,6 +20,7 @@ namespace SKKLib.DB
         public string DBHost { get; set; } = "";
         public string DBUser { get; set; } = "";
         public string DBPass { get; set; } = "";
+        public string DBDSN { get; set; } = "";
 
         public string ConnectionString
         {
@@ -28,12 +29,13 @@ namespace SKKLib.DB
                 string ret = "";
                 ret += (DBDriver != "") ? $"Driver={DBDriver};" : "";
                 ret += (DBProvider != "") ? $"Provider={DBProvider};" : "";
-                ret += (DBQ != "") ? $"DBQ={DBQ};" : "";
-                ret += (DBSource != "") ? $"DataSource={DBSource};" : "";
+                ret += (DBQ != "") ? $"Dbq={DBQ};" : "";
+                ret += (DBSource != "") ? $"Data Source={DBSource};" : "";
                 ret += (DBHost != "") ? $"server={((Environment.MachineName.ToUpper() == DBHost.ToUpper()) ? "localhost" : DBHost)};" : "";
                 ret += (DBName != "") ? $"database={DBName};" : "";
                 ret += (DBUser != "") ? $"uid={DBUser};" : "";
                 ret += (DBPass != "") ? $"pwd={DBPass};" : "";
+                ret += (DBDSN != "") ? $"DSN={DBDSN};" : "";
                 return ret;
             }
         }
@@ -131,7 +133,7 @@ namespace SKKLib.DB
         {
             using (var bench = SKKBench.Get("SKKLib.DBobOdbc.Constructor"))
             {
-                if (fileName != null) Load(fileName);
+                    if (fileName != null) Load(fileName);
             }
         }
 
@@ -140,14 +142,14 @@ namespace SKKLib.DB
         public void Load(string file = null)
         {
             using (var bench = SKKBench.Get($"SKKLib.DBObOdbc.Load({file}", false))
-            {
+             {
                 Loaded = false;
                 if (file == null) return;
                 try
                 {
                     myDB = JsonConvert.DeserializeObject<DBSettings>(File.ReadAllText(file));
                 }
-                catch
+                catch(Exception x)
                 {
                     return;
                 }

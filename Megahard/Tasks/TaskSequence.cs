@@ -12,7 +12,7 @@ namespace Megahard.Tasks
 		}
 
 		readonly List<UITask> list_ = new List<UITask>();
-		int position_;
+		//int position_;
 		#region ITaskContainer Members
 
 		public UITask ActiveTask

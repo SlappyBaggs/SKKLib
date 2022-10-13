@@ -72,7 +72,7 @@ namespace Megahard.Controls
  
 
 
-			INestedContainer nestedContainer_;
+			//INestedContainer nestedContainer_;
 			public override System.Collections.ICollection AssociatedComponents
 			{
 				get

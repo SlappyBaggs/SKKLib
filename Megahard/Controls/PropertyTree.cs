@@ -143,6 +143,7 @@ namespace Megahard.Controls
 					propNode.Nodes.Add(new PropNode(prop, instance, subProps));
 				}
 				return;
+				/*
 				foreach (PropertyDescriptor subProp in subProps)
 				{
 					object ob = null;
@@ -159,6 +160,7 @@ namespace Megahard.Controls
 					}
 					AddProperty(subProp, propNode, ob);
 				}
+				*/
 			}
 
 			//if ((!prop.IsReadOnly || ShowReadOnlyProperties) || propNode.Nodes.Count > 0 || typeof(ICollection).IsAssignableFrom(prop.PropertyType))

@@ -453,11 +453,12 @@ namespace Megahard.Data.Experimental
 		public T NewValue { get; set; }
 	}
 	
+	/*
 	class NewObjectChanged<T>
 	{
 		IEnumerable<PropertyChange> PropertyChanges;
 	}
-
+	*/
 	interface IObservationLink
 	{
 		void DestroyLink();

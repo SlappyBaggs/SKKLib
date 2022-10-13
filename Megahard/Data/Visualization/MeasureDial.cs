@@ -16,7 +16,7 @@ namespace Megahard.Data.Visualization
 	[ToolboxBitmap(typeof(reslocator), @"Megahard.Icons.Dial.ico")]
 	[TypeConverter(typeof(PropertySorter))]
 	[DefaultEvent("MeasureDialChanged")]
-	public partial class MeasureDial : Control, ICustomTypeDescriptor//, INotifyPropertyChanged
+	public partial class MeasureDial : UserControl, ICustomTypeDescriptor//, INotifyPropertyChanged
 	{
 		private Pen borderPen;
 		private Pen linePen;

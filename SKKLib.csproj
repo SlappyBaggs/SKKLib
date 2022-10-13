@@ -454,7 +454,7 @@
     </Compile>
     <Compile Include="Megahard\Data\Visualization\IDataVisualizer.cs" />
     <Compile Include="Megahard\Data\Visualization\MeasureDial.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Megahard\Data\Visualization\MeasureDial.Designer.cs">
       <DependentUpon>MeasureDial.cs</DependentUpon>
@@ -670,6 +670,7 @@
     <Compile Include="State\State.cs" />
     <Compile Include="StringEncrypt\SKKStringEncrypt.cs" />
     <Compile Include="SystemLib\Bench.cs" />
+    <Compile Include="SystemLib\DebugDepth.cs" />
     <Compile Include="TCP\Client.cs" />
     <Compile Include="TCP\Server.cs" />
     <Compile Include="TypeConverters\EnumTypeDescriptor.cs" />
