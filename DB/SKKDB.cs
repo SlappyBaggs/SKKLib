@@ -149,7 +149,7 @@ namespace SKKLib.DB
                 {
                     myDB = JsonConvert.DeserializeObject<DBSettings>(File.ReadAllText(file));
                 }
-                catch(Exception x)
+                catch(Exception /*x*/)
                 {
                     return;
                 }
