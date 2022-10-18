@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.Common;
 using static SKKLib.Console.SKKConsole;
 using SKKLib.SystemLib;
+using System.Windows.Forms.VisualStyles;
 
 namespace SKKLib.DB
 {
@@ -116,6 +117,10 @@ namespace SKKLib.DB
         public IDbCommand GetCommand(string sql) => new MySqlCommand(sql, myConn);
 
         public IDataAdapter GetAdapter(string sql) => new MySqlDataAdapter(sql, myConn);
+
+        public DataTable GetSchema() => myConn.GetSchema();
+        public DataTable GetSchema(string collectionName) => myConn.GetSchema(collectionName);
+        public DataTable GetSchema(string collectionName, string[] restrictionValues) => myConn.GetSchema(collectionName, restrictionValues);
     }
 
     public class DBObOdbc : ISKKDB
@@ -193,5 +198,9 @@ namespace SKKLib.DB
         public IDbCommand GetCommand(string sql) => new OdbcCommand(sql, myConn);
 
         public IDataAdapter GetAdapter(string sql) => new OdbcDataAdapter(sql, myConn);
+
+        public DataTable GetSchema() => myConn.GetSchema();
+        public DataTable GetSchema(string collectionName) => myConn.GetSchema(collectionName);
+        public DataTable GetSchema(string collectionName, string[] restrictionValues) => myConn.GetSchema(collectionName, restrictionValues);
     }
 }

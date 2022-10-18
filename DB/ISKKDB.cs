@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SKKLib.DB
 {
-    public interface ISKKDB
+    public interface ISKKDB : ISKKDBBase
     {
         bool Loaded { get; }
         bool IsOpen { get; }
@@ -19,9 +19,22 @@ namespace SKKLib.DB
         void Load(string file = null);
         void Open(bool ino = false);
         void Close();
+        //void ExecuteSql(string sql);
+        //IDataReader ExecuteReader(string sql);
+        //IDbCommand GetCommand(string sql);
+        //IDataAdapter GetAdapter(string sql);
+    }
+
+    public interface ISKKDBBase
+    {
         void ExecuteSql(string sql);
         IDataReader ExecuteReader(string sql);
         IDbCommand GetCommand(string sql);
         IDataAdapter GetAdapter(string sql);
+
+        DataTable GetSchema();
+        DataTable GetSchema(string collectionName);
+        DataTable GetSchema(string collectionName, string[] restrictionValues);
     }
+
 }
