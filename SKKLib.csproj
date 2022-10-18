@@ -128,6 +128,7 @@
     <Compile Include="Math\CurveFit.cs" />
     <Compile Include="Math\Point2.cs" />
     <Compile Include="Math\Polynomial.cs" />
+    <Compile Include="TypeLib\StringRandom.cs" />
     <None Include="Megahard\Aspects\EventAspect.cs" />
     <None Include="Megahard\Aspects\OnEventAccessAspect.cs" />
     <None Include="Megahard\Aspects\OnPropertyAccessAspect.cs" />

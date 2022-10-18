@@ -23,7 +23,7 @@ namespace SKKLib.Controls.Controls
 
         private bool DroppedDown { get; set; } = false;
 
-        private void Refresh()
+        private void RefreshDropDown()
         {
             listView.Visible = DroppedDown;
             Height = 23 + (DroppedDown ? listView.Height : 0);
@@ -32,7 +32,7 @@ namespace SKKLib.Controls.Controls
         private void kryptonButton1_Click(object sender, EventArgs e)
         {
             DroppedDown = !DroppedDown;
-            Refresh();
+            RefreshDropDown();
         }
     }
 }
