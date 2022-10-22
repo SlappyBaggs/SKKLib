@@ -15,6 +15,7 @@ namespace SKKLib.DB
         bool Loaded { get; }
         bool IsOpen { get; }
         string MyConnString { get; }
+        DbConnection MyConnection { get; }
 
         void Load(string file = null);
         void Open(bool ino = false);

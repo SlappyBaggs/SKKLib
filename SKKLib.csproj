@@ -116,8 +116,14 @@
       <DependentUpon>_TestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DB\AccessToDataSet.cs" />
+    <Compile Include="DB\Elements\Column.cs" />
+    <Compile Include="DB\Elements\Index.cs" />
+    <Compile Include="DB\Elements\Table.cs" />
     <Compile Include="DB\ISKKDB.cs" />
-    <Compile Include="DB\SKKDB.cs" />
+    <Compile Include="DB\SKKDB_Holder.cs" />
+    <Compile Include="DB\SKKDB_Settings.cs" />
+    <Compile Include="DB\SKKDB_Odbc.cs" />
+    <Compile Include="DB\SKKDB_SQL.cs" />
     <Compile Include="Handlers\FactoryHandler.cs" />
     <Compile Include="Handlers\KeyboardHandler.cs" />
     <Compile Include="Handlers\MouseHandler.cs" />
