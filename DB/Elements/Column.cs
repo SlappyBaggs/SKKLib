@@ -60,6 +60,7 @@ namespace SKKLib.DB.Elements
             string ret = $"{ColumnNameSQL} ";
             switch (DataType)
             {
+                case "BYTE":
                 case "COUNTER":
                     ret += "INTEGER";
                     break;
