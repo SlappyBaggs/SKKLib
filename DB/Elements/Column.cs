@@ -68,7 +68,7 @@ namespace SKKLib.DB.Elements
                     ret += "MEDIUMTEXT";
                     break;
                 case "LONGBINARY":
-                    ret += "BLOB";
+                    ret += "MEDIUMBLOB";
                     break;
                 default:
                     ret += DataType;
@@ -77,6 +77,7 @@ namespace SKKLib.DB.Elements
             
             switch (DataType)
             {
+                case "BYTE":
                 case "CHAR":
                 case "VARCHAR":
                 case "BINARY":
