@@ -69,6 +69,7 @@ namespace SKKLib.Controls.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SKKMessageBox";
             this.Load += new System.EventHandler(this.SKKMessageBox_Load);
+            this.SizeChanged += new System.EventHandler(this.MessageBox_SizeChanged);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SKKMessageBox_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();

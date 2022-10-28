@@ -120,6 +120,7 @@
     <Compile Include="DB\Elements\Index.cs" />
     <Compile Include="DB\Elements\Report.cs" />
     <Compile Include="DB\Elements\Table.cs" />
+    <Compile Include="DB\Exceptions.cs" />
     <Compile Include="DB\ISKKDB.cs" />
     <Compile Include="DB\SKKDB_Holder.cs" />
     <Compile Include="DB\SKKDB_Settings.cs" />
