@@ -1,13 +1,17 @@
-﻿using MySql.Data.MySqlClient;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.IO;
 using System.Data.Odbc;
 using System.Data;
 using System.Data.Common;
-using static SKKLib.Console.SKKConsole;
-using SKKLib.SystemLib;
 using System.Windows.Forms.VisualStyles;
+
+using SKKLib.SystemLib;
+using SKKLib.DB.Exceptions;
+using static SKKLib.Console.SKKConsole;
+
+using Newtonsoft.Json;
+
+using MySql.Data.MySqlClient;
 
 namespace SKKLib.DB
 {
@@ -54,8 +58,8 @@ namespace SKKLib.DB
 
         public void Open(bool ino = false)
         {
-            //using (var bench = SKKBench.Get("SKKLib.DBObOdbc.Open", false))
-            //{
+            using (var bench = SKKBench.Get("SKKLib.DBObOdbc.Open", false))
+            {
                 if (!Loaded) return;    // Throw??
                 if (ino && IsOpen) return;     // Throw?
 
@@ -66,10 +70,10 @@ namespace SKKLib.DB
                 }
                 catch (Exception ex)
                 {
-                    Controls.Forms.MessageBox.ShowMessage(ex.Message, "DBOdbc Exception");
-                    return;
+                    throw new SKKDBException(ex.Message);
+                    //Controls.Forms.MessageBox.ShowMessage(ex.Message, "DBOdbc Exception");
                 }
-            //}
+            }
         }
 
         public void Close() => myConn?.Close();
