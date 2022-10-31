@@ -213,7 +213,7 @@ namespace SKKLib.DB.DataOb
                 foreach (string key in myFieldLists.Keys)
                 {
                     // If we're a new device, make sure we're including PrimaryKeyString into the DB
-                    if (NewDataOb)
+                    if (NewDataOb || FailedLoad)
                     {
                         // New device will need to write to every table, so go ahead and create a tuple list for each tablekey
                         // Pass in the table's 'Key' table name with the default table key's value
