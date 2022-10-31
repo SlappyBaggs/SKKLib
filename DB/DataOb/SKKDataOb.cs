@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 using SKKLib.SystemLib;
 using SKKLib.DB;
+using System.Data.Odbc;
 
 namespace SKKLib.DB.DataOb
 {
@@ -28,7 +29,7 @@ namespace SKKLib.DB.DataOb
 
             PrimaryKeyString = primKeyString;
 
-            NewDataOb = newDataOb;
+            NewDataOb = NeedsSave = newDataOb;
 
             // Only do this once, since it is static
             if (myTables == null) PopulateMyTables();
@@ -58,7 +59,12 @@ namespace SKKLib.DB.DataOb
 
         // Is this a new DataOb or an Existing one?
         // Determines how save is done (INSERT vs UPDATE)
-        protected bool NewDataOb { get; }
+        protected bool NewDataOb { get; set; }
+
+        // Went to load the DataOb, there's nothing there!!!
+        private bool FailedLoad { get; set; } = false;
+
+        public bool NeedsSave { get; set; } = false;
 
         // The DataOb's default table's primary key value...
         // Defined as string to ease casting/type issues...
@@ -71,7 +77,7 @@ namespace SKKLib.DB.DataOb
         #endregion
 
         #region INIT NEW & LOAD EXISTING
-        protected abstract void SetupNewObject();
+        protected virtual void SetupNewObject() { }
 
         protected bool ObjectLoading { get; set; } = false;
 
@@ -87,37 +93,44 @@ namespace SKKLib.DB.DataOb
 
                     IDataReader rdr = db.ExecuteReader(mySQL);
 
-                    bool didRead = rdr.Read();
-
-                    TypeInfo ti = GetType().GetTypeInfo();
-                    object o;
-
-                    // Loop through the table keys
-                    foreach (string key in myFieldLists.Keys)
+                    if ((rdr as OdbcDataReader).HasRows)
                     {
-                        // Loop though field lists for each table
-                        foreach (SKKDataObComponent sc in myFieldLists[key])
+                        bool didRead = rdr.Read();
+
+                        TypeInfo ti = GetType().GetTypeInfo();
+                        object o;
+
+                        // Loop through the table keys
+                        foreach (string key in myFieldLists.Keys)
                         {
-                            try
+                            // Loop though field lists for each table
+                            foreach (SKKDataObComponent sc in myFieldLists[key])
                             {
-                                if (sc.SkipLoad) continue;
+                                try
+                                {
+                                    if (sc.SkipLoad) continue;
 
-                                // Get the value from DB
-                                o = rdr[sc.FieldName];
+                                    // Get the value from DB
+                                    o = rdr[sc.FieldName];
 
-                                // Handle weird casting issues...
-                                if ((sc.PropertyType == typeof(Int32)) && (o.GetType() == typeof(Single))) o = Convert.ToInt32(o);
-                                o = (o is DBNull) ? null : o;
+                                    // Handle weird casting issues...
+                                    if ((sc.PropertyType == typeof(Int32)) && (o.GetType() == typeof(Single))) o = Convert.ToInt32(o);
+                                    o = (o is DBNull) ? null : o;
 
-                                // Set property with loaded DB value
-                                dd.Msg($"Setting Property: {sc.PropertyName} [{sc.PropertyType}] to {o} [{((o is null) ? null : o.GetType())}]");
-                                ti.GetProperty(sc.PropertyName).SetValue(this, o);
-                            }
-                            catch (Exception /*x*/)
-                            {
-                                System.Diagnostics.Debugger.Break();
+                                    // Set property with loaded DB value
+                                    dd.Msg($"Setting Property: {sc.PropertyName} [{sc.PropertyType}] to {o} [{((o is null) ? null : o.GetType())}]");
+                                    ti.GetProperty(sc.PropertyName).SetValue(this, o);
+                                }
+                                catch (Exception /*x*/)
+                                {
+                                    System.Diagnostics.Debugger.Break();
+                                }
                             }
                         }
+                    }
+                    else
+                    {
+                        FailedLoad = true;
                     }
                 }
                 PostLoad();
@@ -186,6 +199,8 @@ namespace SKKLib.DB.DataOb
                 object o;
 
                 // Get default table's key property
+                SKKDataObComponentTable skkTab = myTables.Find(x => x.IsDefault);
+                string skkKey = skkTab.TableKey;
                 PropertyInfo pi = GetType().GetTypeInfo().GetProperty(myTables.Find(x => x.IsDefault).TableKey);
 
                 // Convert the value of the key property to a string
@@ -241,7 +256,7 @@ namespace SKKLib.DB.DataOb
         {
             using (var dd = SKKDebugDepth.Get($"{DBGName}", "SaveToDB()"))
             {
-                List<string> sqls = NewDataOb ? SaveToDB_New() : SaveToDB_Existing();
+                List<string> sqls = (NewDataOb || FailedLoad) ? SaveToDB_New() : SaveToDB_Existing();
                 foreach (string sql in sqls)
                 {
                     using (var db = SKKDBHolder.Hold(DataObDB))
@@ -251,6 +266,8 @@ namespace SKKLib.DB.DataOb
                     }
                 }
                 PostSave();
+                NewDataOb = false;
+                FailedLoad = false;
             }
         }
 
