@@ -11,11 +11,6 @@ namespace Megahard.Collections
 		{
 			return new ImmutableArray<T>(enumerable);
 		}
-
-		/// <summary>
-		/// This is not particularly useful but it doesnt hurt anything to expose this as a public function
-		/// It makes unit testing easier and maybe debug scenario? dunno
-		/// </summary>
 		public static bool AreInternalListsEqual<T>(ImmutableArray<T> arr1, ImmutableArray<T> arr2)
 		{
 			return ImmutableArray<T>.AreInternalListsEqual(arr1, arr2);
@@ -102,10 +97,6 @@ namespace Megahard.Collections
 		protected ImmutableArray(Builder builder) : this(builder.ToList())
 		{
 		}
-
-        /// <summary>
-        /// Always keep private, so only this class can directly set the list member
-        /// </summary>
 		ImmutableArray(IList<T> list) : base(list ?? s_Empty)
 		{
 
@@ -170,10 +161,6 @@ namespace Megahard.Collections
 		{
 			return this;
 		}
-
-		/// <summary>
-		/// Synonym for count
-		/// </summary>
 		public int Length
 		{
 			get { return Count; }

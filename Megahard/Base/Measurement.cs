@@ -7,12 +7,6 @@ using System.ComponentModel.Design.Serialization;
 
 namespace Megahard
 {
-	/// <summary>
-	/// Measurement class encapsulate's a measurement of something, it supports two modes absolute and percent
-	/// absolutement the value is what it is, percent means it is a percentage of some other value, what the other
-	/// value might be is not encapsulated by this concept, this class is intended to be used when u have a value that is
-	/// sometimes one mode and sometimes the other, if it is always percent or absolute, just use an int or double or such
-	/// </summary>
 	[TypeConverter(typeof(Measurement.Converter))]
 	public struct Measurement : IEquatable<Measurement>
 	{

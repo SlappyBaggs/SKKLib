@@ -74,12 +74,6 @@ namespace Megahard.Mathematics
 		{
 			return val == null ? false : IsIntegerNumber(val.GetType());
 		}
-
-		/// <summary>
-		/// Returns if the Type is an integer type, not literally an int but a whole number number, ie int, short, uint etc
-		/// </summary>
-		/// <param name="t"></param>
-		/// <returns></returns>
 		public static bool IsIntegerNumber(Type t)
 		{
 			switch (Type.GetTypeCode(t))

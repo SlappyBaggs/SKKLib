@@ -9,10 +9,6 @@ namespace Megahard.Threading
 	{
 		private EventHandler<ArgType> eh_;
 		readonly SyncLock locker_;
-		/// <summary>
-		/// Provide the object for the SynchronizedEventBacking to lock on
-		/// </summary>
-		/// <param name="SyncRoot"></param>
 		public SynchronizedEventBacking(SyncLock lockOb)
 		{
 			locker_ = lockOb;
@@ -22,10 +18,6 @@ namespace Megahard.Threading
 		{
 			locker_ = new SyncLock();
 		}
-
-		/// <summary>
-		/// Is anyone subscribing to this event currently?		
-		/// </summary>
 		public bool HasListeners
 		{
 			get
@@ -77,10 +69,6 @@ namespace Megahard.Threading
 	{
 		private EventHandler eh_;
 		private readonly SyncLock lock_;
-		/// <summary>
-		/// Provide the object for the SynchronizedEventBacking to lock on
-		/// </summary>
-		/// <param name="SyncRoot"></param>
 		public SynchronizedEventBacking(SyncLock lockOb)
 		{
 			lock_ = lockOb;
@@ -90,10 +78,6 @@ namespace Megahard.Threading
 		{
 			lock_ = new SyncLock("SyncEvent");
 		}
-
-		/// <summary>
-		/// Is anyone subscribing to this event currently?		
-		/// </summary>
 		public bool HasListeners
 		{
 			get

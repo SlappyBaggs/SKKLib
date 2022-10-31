@@ -6,17 +6,10 @@ using System.Windows.Forms;
 
 namespace Megahard.Data.Visualization
 {
-	/// <summary>
-	/// For use as the base type in TypeDescriptor.GetEditor(..., base);
-	/// </summary>
 	public abstract class VisualTypeEditor
 	{
 		public abstract IDataVisualizer CreateVisualizer(VisualizerStyle style);
 	}
-
-	/// <summary>
-	/// for use as first arg in EditorAttribute
-	/// </summary>
 	public sealed class VisualTypeEditor<VisualizerType> : VisualTypeEditor where VisualizerType : IDataVisualizer, new()
 	{
 		public override IDataVisualizer CreateVisualizer(VisualizerStyle style)

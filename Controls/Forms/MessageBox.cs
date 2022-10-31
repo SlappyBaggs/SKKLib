@@ -15,7 +15,7 @@ namespace SKKLib.Controls.Forms
         {
             InitializeComponent();
 
-            if(app_ != null) Icon = app_.Icon;
+            Icon = app_?.Icon;
 
             tbMessage.Text = msg1;
             if (msg2 != String.Empty) Text = msg2;

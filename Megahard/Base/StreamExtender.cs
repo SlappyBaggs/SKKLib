@@ -9,9 +9,6 @@ namespace System.IO
 {
 	public static class mhStreamExtender
 	{
-		/// <summary>
-		/// Reads exactly bytesToRead bytes from stream and returns as an array, if stream times out or end is reached, an exception is thrown
-		/// </summary>
 		public static byte[] ReadExactly(this Stream stream, int bytesToRead)
 		{
 			if (stream == null)

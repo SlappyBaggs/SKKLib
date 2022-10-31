@@ -48,12 +48,6 @@ namespace Megahard.ComponentModel.deprecated
 
 		#endregion
 	}
-
-	/// <summary>
-	/// This class makes it easier to implement an event that automatically handles calling Invoke on windows form controsl when the event is fired
-	/// </summary>
-	/// <typeparam name="ArgType"></typeparam>
-	/// 
 	public class EnhancedEvent<ArgType> where ArgType : EventArgs
 	{
 		private EnhancedEvent()

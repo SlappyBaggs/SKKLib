@@ -7,11 +7,6 @@ using System.Collections;
 
 namespace Megahard.Data
 {
-	/// <summary>
-	/// The ObservableCollection also implements IBindingList for convenience and interoperability with standard winforms binding
-	/// </summary>
-	/// 
-	/// <typeparam name="T"></typeparam>
 	[Editor(typeof(System.ComponentModel.Design.CollectionEditor), typeof(System.Drawing.Design.UITypeEditor))]
 	[Editor(typeof(Visualization.VisualTypeEditor<Visualization.CollectionVisualizer>), typeof(Visualization.VisualTypeEditor))]
 	public class ObservableCollection<T> : ObservableObject, System.Collections.Generic.IList<T>, System.Collections.IList, Megahard.Collections.IIndexable<T, int>, IObservableCollection, IBindingList, ICloneable
@@ -69,10 +64,6 @@ namespace Megahard.Data
 					listChg(this, lcArgs);
 			}
 		}
-
-		/// <summary>
-		/// If this returns true then the operation that caused the change is canceled when possible
-		/// </summary>
 		protected virtual bool OnCollectionChanging(CollectionChangeEventArgs<T> args)
 		{
 			if (base.CanRaiseChangeEvents)
@@ -84,11 +75,6 @@ namespace Megahard.Data
 			}
 			return false;
 		}
-
-
-		/// <summary>
-		/// Creates the collection and populates it with given enumerable
-		/// </summary>
 		public ObservableCollection(IEnumerable<T> enumerable) : this()
 		{
 			list_.AddRange(enumerable);
@@ -111,11 +97,6 @@ namespace Megahard.Data
 		
 			list_ = new List<T>();
 		}
-
-		/// <summary>
-		/// Initial capacity of the list storage
-		/// </summary>word
-		/// <param name="initialCapacity"></param>
 		public ObservableCollection(int initialCapacity, IEventExecutor exec)
 		{
 			if (exec == null)

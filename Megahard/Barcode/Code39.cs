@@ -105,10 +105,6 @@ namespace Megahard.Barcode
 			get;
 			set;
 		}
-
-		/// <summary>
-		/// This is a multiple of the NarrowBarWidth
-		/// </summary>
 		[DefaultValue(DefaultInterCharGapRatio)]
 		public float InterCharGapRatio
 		{
@@ -349,10 +345,6 @@ namespace Megahard.Barcode
 				g.PageUnit = pu;
 			}
 		}
-
-		/// <summary>
-		/// DrawBarCode at X, Y position in inches
-		/// </summary>
 		public void DrawBarCode(Graphics g, float x, float y)
 		{
 			if (EnforceValidSettings)
@@ -389,10 +381,6 @@ namespace Megahard.Barcode
 				return 1.0f / (CharWidth + InterCharGapWidth);
 			}
 		}
-
-		/// <summary>
-		/// Min width in inches
-		/// </summary>
 		public static float CalculateMinWidth(string data)
 		{
 			data = data ?? "";

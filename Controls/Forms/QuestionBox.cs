@@ -14,7 +14,7 @@ namespace SKKLib.Controls.Forms
         private QuestionBox(string msg1, string msg2)
         {
             InitializeComponent();
-            Icon = app_.Icon;
+            Icon = app_?.Icon;
             tbMessage.Text = msg1;
             if (msg2 != String.Empty)
                 Text = msg2;

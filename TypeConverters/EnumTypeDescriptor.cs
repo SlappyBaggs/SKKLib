@@ -10,12 +10,6 @@ namespace SKKLib.TypeConverters
 	public class EnumDescConverter : EnumConverter
 	{
 		protected Type enumType;
-
-		/// <summary>
-		/// Gets Enum Value's Description Attribute
-		/// </summary>
-		/// <param name="value">The value you want the description attribute for</param>
-		/// <returns>The description, if any, else it's .ToString()</returns>
 		public static string GetEnumDescription(Enum value)
 		{
 			string s = value.ToString();
@@ -25,13 +19,6 @@ namespace SKKLib.TypeConverters
 			var attr = fi.GetCustomAttribute<DescriptionAttribute>(false);
 			return attr != null ? attr.Description : s;
 		}
-
-		/// <summary>
-		/// Gets the description for certaing named value in an Enumeration
-		/// </summary>
-		/// <param name="value">The type of the Enumeration</param>
-		/// <param name="name">The name of the Enumeration value</param>
-		/// <returns>The description, if any, else the passed name</returns>
 		public static string GetEnumDescription(Type value, string name)
 		{
 			FieldInfo fi = value.GetField(name, BindingFlags.Public | BindingFlags.Static);
@@ -40,14 +27,6 @@ namespace SKKLib.TypeConverters
 			var attr = fi.GetCustomAttribute<DescriptionAttribute>(false);
 			return attr != null ? attr.Description : name;
 		}
-
-
-		/// <summary>
-		/// Gets the value of an Enum, based on it's Description Attribute or named value
-		/// </summary>
-		/// <param name="value">The Enum type</param>
-		/// <param name="description">The description or name of the element</param>
-		/// <returns>The value, or the passed in or null if it was not found</returns>
 		public static object GetEnumValue(Type value, string description)
 		{
 			FieldInfo[] fis = value.GetFields(BindingFlags.Public | BindingFlags.Static);

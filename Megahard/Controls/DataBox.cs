@@ -17,13 +17,6 @@ using System.ComponentModel.Design;
 
 namespace Megahard.Data.Controls
 {
-	/// <summary>
-	/// Notes on thread safety:
-	/// You are not to call any functions on DataBox from a thread other than the thread which create databox.  Typical WinForm control rules here.  There is one exception.
-	/// The data property is exception, the dataobject can only be changed from main thread, but the SetValue func on the dataobject can be called from anythread, and
-	/// change notification of data subobjects can fire on any thread, whew complex
-	
-	/// </summary>
     [ToolboxItem(true)]
 	[Designer(typeof(DataBoxDesigner))]
 	[DefaultProperty("Data")]
@@ -51,10 +44,6 @@ namespace Megahard.Data.Controls
 			propLabel_ = new DataLabel(this);
 			base.RegisterChildObservable("Label");
 		}
-		/// <summary> 
-		/// Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing)
@@ -106,11 +95,6 @@ namespace Megahard.Data.Controls
 					activeVisualizer_.AllowEditing = !value;
 			}
 		}
-
-		/// <summary>
-		/// Indicates if there is an error with the bound data
-		/// </summary>
-		/// 
 		[Browsable(false)]
 		public bool Error
 		{
@@ -442,10 +426,6 @@ namespace Megahard.Data.Controls
 
 			base.OnObjectChanged(args);
 		}
-
-		/// <summary>
-		/// Forces DataBox to re-examine the Data object and create a new visualizer
-		/// </summary>
 		public void ReloadVisualizer()
 		{
 			this.AutoBeginInvoke(HandleDataChanged);

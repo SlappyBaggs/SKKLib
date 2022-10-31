@@ -75,10 +75,6 @@ namespace Megahard.Mathematics
 		{
 			get { return propMin_.HasValue; }
 		}
-
-		/// <summary>
-		/// True if either the upper or lower has no bound
-		/// </summary>
 		public bool IsUnbounded
 		{
 			get { return !HasLowerBound || !HasUpperBound; }
@@ -88,27 +84,14 @@ namespace Megahard.Mathematics
 		{
 			get { return propMin_.HasValue && propMax_.HasValue && (propMin_.Value.CompareTo(propMax_.Value) > 0); }
 		}
-
-		/// <summary>
-		/// True if there is no upper or lower bound
-		/// </summary>
 		public bool IsInfinite
 		{
 			get { return !HasUpperBound && !HasLowerBound; }
 		}
-
-		/// <summary>
-		/// Synonym for IsBounded, basically if true, means the range of values is small than the range of values 
-		/// of the underlying data type
-		/// </summary>
 		public bool IsFinite
 		{
 			get { return IsBounded; }
 		}
-
-		/// <summary>
-		/// True if the range is bounded on both upper and lower ends
-		/// </summary>
 		public bool IsBounded
 		{
 			get { return HasUpperBound && HasLowerBound; }

@@ -16,11 +16,6 @@ namespace Megahard.Data.Visualization
 		#region Handled Property
 		
 		bool propHandled_;
-
-		/// <summary>
-		/// If set to true, it means the error was handled in some way by some code somewhere
-		/// The object firing the event uses this flag to determine if it needs to take some action concerning the error
-		/// </summary>
 		public bool Handled
 		{
 			get { return propHandled_; }

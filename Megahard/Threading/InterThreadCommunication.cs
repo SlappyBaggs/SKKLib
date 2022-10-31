@@ -4,24 +4,8 @@ using System.Collections.Generic;
 
 namespace Megahard.Threading
 {
-	/// <summary>
-	/// A mechanism which allows one thread to send a message to one or more listening threads
-	/// This is a lossy transmission, if the messgae is sent while there are no listeners, then
-	/// the message is lost.
-	/// The sender receives absolutely no feedback as to how many (if any) threads actually received
-	/// the message
-	/// This class is of limited usefulness actually, check out FutureValue for something more useful
-	/// </summary>
-	/// <typeparam name="msgtype"></typeparam>
-	/// 
 	public class OneWayLossyMessageDispatcher<msgtype>
 	{
-		/// <summary>
-		/// Wait for a value from the dispatcher
-		/// </summary>
-		/// <param name="value"></param>
-		/// <param name="timeout"></param>
-		/// <returns>true if value was received, false if we timed out</returns>
 		public bool WaitForValue(out msgtype msg, TimeSpan timeout)
 		{
 			lock (lockOb_)
@@ -38,23 +22,12 @@ namespace Megahard.Threading
 				return ret;
 			}
 		}
-
-		/// <summary>
-		/// Waits for a message with infinite timeout
-		/// </summary>
-		/// <returns></returns>
 		public msgtype WaitForValue()
 		{
 			msgtype msg;
 			WaitForValue(out msg, TimeSpan.FromMilliseconds(-1));
 			return msg;
 		}
-
-
-		/// <summary>
-		/// Dispatches the message to ALL the threads that are listening
-		/// </summary>
-		/// <param name="msg"></param>
 		public void DispatchMessageALL(msgtype msg)
 		{
 			lock (lockOb_)
@@ -64,11 +37,6 @@ namespace Megahard.Threading
 			}
 
 		}
-
-		/// <summary>
-		/// Sends the message and only dispatches it to ONE thread in the wait queue
-		/// </summary>
-		/// <param name="msg"></param>
 		public void DispatchMessageONE(msgtype msg)
 		{
 			lock (lockOb_)
@@ -81,13 +49,6 @@ namespace Megahard.Threading
 		private readonly object lockOb_ = new object();
 		private msgtype msg_;
 	}
-
-	/// <summary>
-	/// A message queue for usage by threads, messages can be posted or waited to the queue
-	/// The posting thread effectively sends messages to the waiting threads, but receives
-	/// no feedback as to when the message is dequeued (if ever) hence the one way part of the name
-	/// </summary>
-	/// <typeparam name="msgtype"></typeparam>
 	public class OneWayMessageQueue<msgtype>
 	{
 		public OneWayMessageQueue()

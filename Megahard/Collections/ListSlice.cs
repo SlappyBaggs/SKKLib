@@ -5,9 +5,6 @@ using System.Collections.Generic;
 
 namespace Megahard.Collections
 {
-	/// <summary>
-	/// Creates a wrapper around the supplied list to expose only the range of the list specified
-	/// </summary>
 	public sealed class ListSlice<T> : Collection<T>
 	{
 		public ListSlice(IList<T> list, int startIndex, int length)

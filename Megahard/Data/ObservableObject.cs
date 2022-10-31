@@ -12,19 +12,11 @@ using System.Reflection;
 
 namespace Megahard.Data
 {
-	/// <summary>
-	/// Implementation of IObservableObject, should be used whenever possible instead of implementing the interface yourself
-	/// </summary>
 	public partial class ObservableObject : IObservableObject, IDisposable
 	{
 		protected ObservableObject()
 		{
 		}
-
-		/// <summary>
-		/// Register a delegate to be called whenever the specified property has changed
-		/// the arguments are oldval newval
-		/// </summary>
 
 		public AttachedObserver AttachObserver(PropertyPath prop, Action<ObjectChangedEventArgs> callback, Action<ObjectChangingEventArgs> changingCallback)
 		{
@@ -128,10 +120,6 @@ namespace Megahard.Data
 			if (copy != null)
 				copy(this, args);
 		}
-
-		/// <summary>
-		/// The object used as sender when firing Changed and Changing events
-		/// </summary>
 		protected virtual object EventSenderObject
 		{
 			get { return this; }
@@ -233,10 +221,6 @@ namespace Megahard.Data
 			{
 				return !object.Equals(val_, value);
 			}
-
-			/// <summary>
-			/// never returns null
-			/// </summary>
 			public ObjectChangedEventArgs<T> SetValueNoEqualCheck(ObservableObject owner, T value)
 			{
 				owner.RaiseObjectChanging(new ObjectChangingEventArgs(prop_, value));
@@ -246,10 +230,6 @@ namespace Megahard.Data
 				owner.RaiseObjectChanged(chged);
 				return chged;
 			}
-
-			/// <summary>
-			/// returns null if the prop already had the specified value
-			/// </summary>
 			public ObjectChangedEventArgs<T> SetValue(ObservableObject owner, T value)
 			{
 				if(WouldChange(value))
@@ -312,10 +292,6 @@ namespace Megahard.Data
 
 		public object NewValue { get; private set; }
 		public new PropertyPath PropertyName { get; private set; }
-
-		/// <summary>
-		/// Just some extra data that can be tacked on for usage as needed
-		/// </summary>
 		public object ExtraInfo { get; private set; }
 
 
@@ -384,26 +360,13 @@ namespace Megahard.Data
 
 		#region bool TypeChanged { get; readonly; }
 		readonly bool propTypeChanged_;
-
-		/// <summary>
-		/// This is true if the value obtain from the property is of a different type than it used to be
-		/// </summary>
 		public bool TypeChanged
 		{
 			get { return propTypeChanged_; }
 		}
 		#endregion
-
-		/// <summary>
-		/// If the OldValue is not known or cannot be obtained due to complexity speed issues, then it should be set to 
-		/// StandardValues.UnavailableValue, use null for when the value really is null
-		/// </summary>
 		public object OldValue { get; private set; }
 		public object NewValue { get; private set; }
-
-		/// <summary>
-		/// Just some extra data that can be tacked on for usage as needed
-		/// </summary>
 		public object ExtraInfo { get; private set; }
 		
 		public new PropertyPath PropertyName { get; private set; }

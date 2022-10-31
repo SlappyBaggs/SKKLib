@@ -31,9 +31,6 @@ namespace Megahard.Design
 		{
 			get { return show_; }
 		}
-		/// <summary>
-		/// Include this item as an ActionVerb, only valid when used on a Method
-		/// </summary>
 		public bool IncludeAsVerb { get; set; }
 
 		[DefaultValue(true)]

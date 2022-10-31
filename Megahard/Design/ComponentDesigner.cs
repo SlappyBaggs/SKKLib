@@ -20,10 +20,6 @@ namespace Megahard.Design
 	{
 		SelectionRulesAlias ModifySelectionRules(SelectionRulesAlias currentVal);
 	}
-
-	/// <summary>
-	/// Common base class for all designers to use, not much in it for now, this is mostly infrastructure
-	/// </summary>
 	public class ComponentDesigner : ComponentDesignerAlias
 	{
 		public ComponentDesigner()

@@ -9,21 +9,12 @@ using System.Collections;
 
 namespace Megahard.Design
 {
-	/// <summary>
-	/// An editor which displays a tree of all the properties of the Target ob and all expandable properties
-	/// Let's use select one and it is returned....
-	/// </summary>
 	public abstract class SelectPropertyEditor : Megahard.Design.UITypeEditor
 	{
 		public SelectPropertyEditor()
 		{
 			base.EditorStyle = System.Drawing.Design.UITypeEditorEditStyle.DropDown;
 		}
-
-		/// <summary>
-		/// Implement this function to indicate to the editor which object it is we wish to take a list of properties from
-		/// </summary>
-		/// <returns>The object whose properties will be iterated</returns>
 		protected abstract object GetTarget(ITypeDescriptorContext context, IServiceProvider provider, object currentVal);
 
 		protected override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, IWindowsFormsEditorService formEditSvc, object currentValue)

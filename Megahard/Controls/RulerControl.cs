@@ -25,10 +25,6 @@ namespace Megahard.Controls
 		BottomOrRight
 	}
 	#endregion
-
-	/// <summary>
-	/// Summary description for RulerControl.
-	/// </summary>
 	[ToolboxItem(true)]
 	[ToolboxBitmap(typeof(reslocator), "Megahard.Icons.Ruler.bmp")]
 	public class Ruler : ControlBase, IMessageFilter, INotifyPropertyChanged
@@ -546,10 +542,6 @@ namespace Megahard.Controls
 		{
 			return _Length != AutoValue;
 		}
-
-		/// <summary>
-		/// Size of the ruler in Ruler Units
-		/// </summary>
 		SizeF RulerUnitSize
 		{
 			get
@@ -578,10 +570,6 @@ namespace Megahard.Controls
 				return new RectangleF(new PointF(0, 0), RulerUnitSize);
 			}
 		}
-
-		/// <summary>
-		/// Length of the ruler in RulerUnits
-		/// </summary>
 		float RulerUnitLength
 		{
 			get
@@ -611,10 +599,6 @@ namespace Megahard.Controls
 			
 			return new Font(f.FontFamily, pts * scale, GraphicsUnit.Point);
 		}
-
-		/// <summary>
-		/// Height of the ruler in RulerUnits
-		/// </summary>
 		float RulerUnitHeight
 		{
 			get
@@ -826,11 +810,6 @@ namespace Megahard.Controls
 				end = new PointF(markStart + markLen, position);
 			}
 		}
-
-
-		/// <summary>
-		/// params should be ruler units, we dont go back to pixels until the very end
-		/// </summary>
 		private void Line(Graphics g, float x1, float y1, float x2, float y2)
 		{
 			using(SolidBrush brush = new SolidBrush(this.ForeColor))

@@ -37,10 +37,6 @@ namespace Megahard.Security
 					proc.Kill();
 			}
 		}
-
-		/// <summary>
-		/// Returns true if the file was run
-		/// </summary>
 		public static bool RunElevated(string fileName)
 		{
 			ProcessStartInfo processInfo = new ProcessStartInfo();

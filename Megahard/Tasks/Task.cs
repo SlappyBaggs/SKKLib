@@ -61,10 +61,6 @@ namespace Megahard.Tasks
 		protected virtual void OnCanceled()
 		{
 		}
-
-		/// <summary>
-		/// It is by design that external code cannot indicate a task is completed
-		/// </summary>
 		protected void IndicateCompleted()
 		{
 			State = TaskState.Complete;

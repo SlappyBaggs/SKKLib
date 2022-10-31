@@ -177,10 +177,6 @@ namespace Megahard.Data
 		{
 			get { return base.CanRaiseChangeEvents && IsInitialized; }
 		}
-
-		/// <summary>
-		/// The control this component has been place on, keep in mind it can be null
-		/// </summary>
 		[DefaultValue(null)]
 		[Browsable(false)]
 		public ContainerControl ContainerControl

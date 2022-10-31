@@ -7,11 +7,6 @@ using System.Reflection;
 
 namespace Megahard.ComponentModel
 {
-
-	/// <summary>
-	/// Exposes an indexed property as a PropertyDescriptor
-	/// The set/get value will only work if you bind in the specific index parameters at the time of creation
-	/// </summary>
 	class IndexPropertyDescriptor : PropertyDescriptor
 	{
 		readonly PropertyInfo propInfo_;

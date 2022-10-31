@@ -5,11 +5,6 @@ using System.Collections.Generic;
 
 namespace Megahard.Collections
 {
-	/// <summary>
-	/// This exception is thrown in case where there index of item was requested from a collection
-	/// and the item was not in the collection, usually employed in collectiosn which cannot support
-	/// returning a special index value to indicate that the item is not a member
-	/// </summary>
 	public class ItemNotInCollectionException : Exception
 	{
 		public ItemNotInCollectionException(object item) : base("Item not in collection")

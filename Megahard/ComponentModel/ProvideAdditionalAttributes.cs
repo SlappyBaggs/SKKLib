@@ -11,10 +11,6 @@ namespace Megahard.ComponentModel
 		protected ProvideAdditionalAttributes(TypeDescriptionProvider baseProvider) : base(baseProvider)
 		{
 		}
-
-		/// <summary>
-		/// The type we are providing attributes to
-		/// </summary>
 		protected ProvideAdditionalAttributes(Type t) : base(TypeDescriptor.GetProvider(t)) { }
 
 		protected abstract bool OverrideExisting { get; }

@@ -73,11 +73,7 @@ namespace Megahard.Data.Visualization
 
 		//public event PropertyChangedEventHandler PropertyChanged;
 		public event MeasureDialChangedEventHandler MeasureDialChanged;
-	
-		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//  COMMON PROPERTIES
-
-		//////////////
 		//  VALUES
 		[PropertyOrder(-1)]
 		[Category("Measure Dial Values")]
@@ -216,11 +212,7 @@ namespace Megahard.Data.Visualization
 			set { _minSpinDistance = value; Invalidate(); }
 		}
 		private double MinimumSpinDistanceSquared { get { return MinimumSpinDistance * MinimumSpinDistance; } }
-		
-		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//  MEASURE DIAL PROPERTIES
-		
-		//////////////
 		//  COLORS
 		private Color _colorBack = Color.White;
 		[Category("Measure Dial Colors")]
@@ -293,9 +285,6 @@ namespace Megahard.Data.Visualization
 			get { return base.ForeColor; }
 			set { base.ForeColor = value; textBrush = null; Invalidate(); } 
 		}
-
-
-		//////////////////
 		//  APPEARANCE
 		public double _padding = 5.0;
 		[Category("Measure Dial Appearance")]
@@ -427,9 +416,6 @@ namespace Megahard.Data.Visualization
 			get { return _valueUnit; }
 			set { _valueUnit = value; Invalidate(); }
 		}
-
-
-		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//  SPIN DIAL PROPERTIES
 
 		bool _clipImage = true;
@@ -453,17 +439,6 @@ namespace Megahard.Data.Visualization
 			get { return (DialImage == null) ? (ClientSize.Width / 2 - (int)DialPadding - (int)BorderThickness) : _dialRadius; }
 			set { _dialRadius = value; ResizeDialImage(); }
 		}
-
-
-
-
-
-
-
-
-
-
-		///////////////////////
 		//  LOCAL VARIABLES
 		private double dialAngle_;
 		private double DialAngle
@@ -477,11 +452,6 @@ namespace Megahard.Data.Visualization
 		private bool capturing = false;
 		private TextureBrush _texBrush;
 		private TextureBrush _clipBrush;
-
-		
-		
-		
-		/////////////////
 		//  FUNCTIONS
 		private void RecalcRealAngle()
 		{
@@ -712,8 +682,6 @@ namespace Megahard.Data.Visualization
 			capturing = false;
 			base.OnMouseUp(e);
 		}
-		
-		////////////////////////////////////////////
 		//  ICustomTypeDescriptor Implementation	
 		public AttributeCollection GetAttributes() { return TypeDescriptor.GetAttributes(this, true); }
 		public String GetClassName() { return TypeDescriptor.GetClassName(this, true); }
@@ -833,8 +801,6 @@ namespace Megahard.Data.Visualization
 
 	public class MeasureDialColors : INotifyPropertyChanged
 	{
-
-		//////////////
 		//  COLORS
 		private Color colorBlack_ = Color.White;
 		[Category("Measure Dial Colors")]

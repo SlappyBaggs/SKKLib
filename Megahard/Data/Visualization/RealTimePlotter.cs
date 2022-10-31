@@ -51,16 +51,10 @@ namespace Megahard.Data.Visualization
 			SetActiveQueue(GetNewQueue());
 		}
 		private PointQueue activeQueue;
-
-		////////////////////////
 		//  PENS AND BRUSHES
 		Pen tickPen;
 		Pen gridPen;
 		SolidBrush textBrush;
-
-		
-		
-		//////////////
 		//  COLORS
 		[DefaultValue(typeof(Color), "LimeGreen")]
 		public override Color ForeColor
@@ -97,10 +91,6 @@ namespace Megahard.Data.Visualization
 			get { return _gridColor; }
 			set { _gridColor = value; gridPen = null; }
 		}
-
-
-		
-		////////////////////
 		//  DRAW OPTIONS
 		[Category("Real Time Plotter Draw Options")]
 		[Description("Number of time steps the plotter will display")]
@@ -130,11 +120,6 @@ namespace Megahard.Data.Visualization
 		[Description("How many decimals to display in values")]
 		[DefaultValue(0)]
 		public int GraphDecimals { get; set; }
-
-		
-
-		
-		////////////////////		
 		//  GRID OPTIONS
 		[Category("Real Time Plotter Grid Options")]
 		[Description("Draw a grid over the entire control")]
@@ -155,11 +140,6 @@ namespace Megahard.Data.Visualization
 		[Description("Space between grid lines")]
 		[DefaultValue(10.0)]
 		public double GridSpace { get; set; }
-
-		
-		
-		
-		////////////////////
 		//  TICK OPTIONS
 		[Category("Real Time Plotter Tick Options")]
 		[Description("Draw tick marks denoting value spacing")]
@@ -205,11 +185,6 @@ namespace Megahard.Data.Visualization
 		[Description("Draw ticks inside of graph")]
 		[DefaultValue(false)]
 		public bool TickInside { get; set; }
-		
-		
-		
-
-		//////////////
 		//  VALUES
 		[Category("Real Time Plotter Value Options")]
 		[Description("Minimum Value the plotter will plot")]
@@ -250,8 +225,6 @@ namespace Megahard.Data.Visualization
 		{
 			set { activeQueue.PollFunction = value; }
 		}
-		
-		//////////////////////
 		// LIST HANDLING        
 		private int _activeIndex;
 		public void SetActiveQueue(int index)
@@ -277,8 +250,6 @@ namespace Megahard.Data.Visualization
 		{
 			activeQueue._lineColor = c;
 		}
-		
-		/////////////////
 		//  FUNCTIONS
 		public double CurrentValue { get { return activeQueue.CurrentValue; } }
 
@@ -453,11 +424,6 @@ namespace Megahard.Data.Visualization
 				}
 			}
 		}
-
-		
-		
-		
-		/////////////////////////////////////////////////////
 		// POINT STRUCTURES
 		//
 

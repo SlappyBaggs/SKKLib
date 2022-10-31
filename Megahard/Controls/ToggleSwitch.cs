@@ -141,8 +141,6 @@ namespace Megahard.Controls
 				}
 			}
 		}
-
-		////////////////////////////////////////////
 		//  ICustomTypeDescriptor Implementation	
 		public AttributeCollection GetAttributes() { return TypeDescriptor.GetAttributes(this, true); }
 		public String GetClassName() { return TypeDescriptor.GetClassName(this, true); }

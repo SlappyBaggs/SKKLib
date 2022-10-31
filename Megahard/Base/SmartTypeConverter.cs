@@ -10,9 +10,6 @@ namespace Megahard
 {
 	public interface IConvertTo
 	{
-		/// <summary>
-		/// Throws InvalidCastException if the conversion cannot be made
-		/// </summary>
 		object ConvertTo(Type destType);
 		bool CanConvertTo(Type destType);
 	}
@@ -26,12 +23,6 @@ namespace Megahard
 	{
 		To ConvertFrom(From from);
 	}
-
-
-	/// <summary>
-	/// Mark a single arg constructor with this attribute, to allow an arg of that type to
-	/// be converted into the class type containing the constructor via SmartConvert
-	/// </summary>
 	[AttributeUsage(AttributeTargets.Constructor, Inherited = false)]
 	public class SmartConverterAttribute : Attribute
 	{
@@ -39,20 +30,10 @@ namespace Megahard
 
 	public static class SmartConvert
 	{
-
-		/// <summary>
-		/// Attempts to convert value to destType using a plethora of different methods
-		/// returns false if conversion could not be performed
-		/// </summary>
 		public static bool ConvertTo(object value, Type destType, out object convertedValue)
 		{
 			return ConvertTo(value, destType, null, out convertedValue);
 		}
-
-		/// <summary>
-		/// Attempts to convert value to destType using a plethora of different methods
-		/// returns false if conversion could not be performed, if converter is null then the converter associated with destType is used
-		/// </summary>
 		public static bool ConvertTo(object value, Type destType, TypeConverter converter, out object convertedValue)
 		{
 			if (value == null)
@@ -136,19 +117,10 @@ namespace Megahard
 			convertedValue = null;
 			return false;
 		}
-		/// <summary>
-		/// Attempts to convert value to destType using a plethora of different methods
-		/// Throws InvalidOperatation if the conversion cannot be done
-		/// </summary>
 		public static object ConvertTo(object value, Type destType)
 		{
 			return ConvertTo(value, destType, null);
 		}
-
-		/// <summary>
-		/// Attempts to convert value to destType using a plethora of different methods
-		/// Throws InvalidOperatation if the conversion cannot be done
-		/// </summary>
 		public static object ConvertTo(object value, Type destType, TypeConverter converter)
 		{
 			object ret;
@@ -156,12 +128,6 @@ namespace Megahard
 				return ret;
 			throw new InvalidOperationException("SmartTypeConverter cannot convert from " + value.GetType().Describe() + " to " + destType.Describe());
 		}
-
-
-		/// <summary>
-		/// Attempts to convert value to T using a plethora of different methods
-		/// Throws InvalidOperatation if the conversion cannot be done
-		/// </summary>
 		public static T ConvertTo<T>(object value)
 		{
 			return (T)ConvertTo(value, typeof(T));

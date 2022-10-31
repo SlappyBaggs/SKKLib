@@ -49,11 +49,6 @@ namespace Megahard.Threading
 			}
 		}
 	}
-
-	/// <summary>
-	/// This is used to unlock a previously locked SyncLock
-	/// This class is not thread safe, in fact it is not really intended to be passed around very much
-	/// </summary>
 	public struct LockKey : IDisposable
 	{
 		internal LockKey(object lockOb)
@@ -85,12 +80,6 @@ namespace Megahard.Threading
 		{
 			Monitor.Wait(lockOb_);
 		}
-
-		/// <summary>
-		/// Returns true of lock was reacquired before timeout elapsed
-		/// </summary>
-		/// <param name="timeout"></param>
-		/// <returns></returns>
 		public bool Wait(TimeSpan timeout)
 		{
 			return Monitor.Wait(lockOb_, timeout);

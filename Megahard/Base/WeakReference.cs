@@ -6,9 +6,6 @@ using System.Runtime.InteropServices;
 
 namespace Megahard
 {
-	/// <summary>
-	/// Generic weak reference
-	/// </summary>
 	public class WeakReference<T> : WeakReference
 	{
 		public WeakReference(T target) : base(target)

@@ -49,10 +49,6 @@ namespace Megahard.Serialization
 			Serialize(propVal, xml, prop.Converter);
 			return xml;
 		}
-
-			/// <summary>
-		/// conv will be used, if null, then use the converter associated with ob
-		/// </summary>
 		void Serialize(object ob, XElement xml, TypeConverter converter)
 		{
 			if(ob == null)
@@ -296,23 +292,10 @@ namespace Megahard.Serialization
 		{
 		}
 	}
-
-	/// <summary>
-	/// An interface that allows an object to extert greater control over serialization, with minimal effort
-	/// </summary>
 	public interface ISerializable
 	{
-		
-		/// <summary>
-		/// if prop == null, then data about the object implementing the interface is desired by the caller
-		/// This function is not allowed to return null
-		/// </summary>
 		SerializationData GetSerializationData(string prop);
 	}
-
-	/// <summary>
-	/// wraps up an object which does not implement ISerializable so it appears to
-	/// </summary>
 	class SerializableWrapper : ISerializable
 	{
 		public SerializationData GetSerializationData(string prop)

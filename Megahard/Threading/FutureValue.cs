@@ -34,28 +34,13 @@ namespace Megahard.Threading
 	public interface IFutureSetter<ValueType> : IDisposable
 	{
 		void Set(ValueType val);
-
-		/// <summary>
-		/// Equivalent of calling dispose, used for when for whatever reason we cannot set the future value
-		/// </summary>
 		void Cancel();
-
-		/// <summary>
-		/// Causes an exception to be thrown to any thread waiting on the future value
-		/// </summary>
-		/// <param name="e">The exception to throw</param>
 		void ThrowFutureException(Exception e);
 	}
 
 	public interface IFutureValue : IValue
 	{
 		object GetValue(TimeSpan timeOut);
-
-		/// <summary>
-		/// Get the value, but only if it can be done without blocking the thread. 
-		/// </summary>
-		/// <param name="value">the value will be placed here if it is immediately available</param>
-		/// <returns>true if the value was retrieved, false otherwise</returns>
 		bool GetValue(out object value);
 	}
 
@@ -97,15 +82,6 @@ namespace Megahard.Threading
 		}
 	}
 	public enum FutureState { Current, Future, Unspecified };
-	/// <summary>
-	/// Represents a value that will be available sometime in the future
-	/// It can be in 2 states:
-	///   - Current
-	///   - Future
-	///   In the current state, all reads of the value will return immediately
-	///   while in future state, the read will block until the value is available
-	///   
-	/// </summary>
 	public class FutureValue<ValueType> : IFutureValue
 	{
 		#region Constructors
@@ -115,10 +91,6 @@ namespace Megahard.Threading
 			valueSetEventHandler_ = new SynchronizedEventBacking<FutureValueSetEventArgs<ValueType>>(lockOb_);
 			state_ = FutureState.Unspecified;
 		}
-
-		/// <summary>
-		/// Constructs the FutureValue in the current state using the supplied initial value
-		/// </summary>
 		public FutureValue(ValueType val)
 		{
 			state_ = FutureState.Current;
@@ -137,14 +109,6 @@ namespace Megahard.Threading
 		readonly private SynchronizedEventBacking<FutureValueSetEventArgs<ValueType>> valueSetEventHandler_;
 
 		#endregion
-
-		
-		/// <summary>
-		/// Get the value if it is current, otherwise wait on it
-		/// if a timeout occurs, a timeout exception is thrown
-		/// </summary>
-		/// <param name="timeout"></param>
-		/// <returns></returns>
 		public virtual ValueType GetValue(TimeSpan timeout)
 		{
 			using (var key = lockOb_.Lock())
@@ -181,19 +145,10 @@ namespace Megahard.Threading
 				return "FutureValue (timedout)";
 			}
 		}
-		/// <summary>
-		/// Retrieve the value, waiting if necessary until the end of time
-		/// </summary>
-		/// <returns></returns>
 		public ValueType GetValue()
 		{
 			return GetValue(TimeSpan.FromMilliseconds(-1));
 		}
-
-		/// <summary>
-		/// Gets the value if it is available without any blocking and return true
-		/// otherwise return false
-		/// </summary>
 		public virtual bool GetValue(out ValueType value)
 		{
 			using (lockOb_.Lock())
@@ -271,11 +226,6 @@ namespace Megahard.Threading
 
 			#endregion
 		}
-		
-		/// <summary>
-		/// Begin setting the future value, if it is already being set InvalidOperationException is thrown
-		/// </summary>
-		/// <returns>A delegate used to set the value when it is available</returns>
 		public virtual IFutureSetter<ValueType> BeginSetValue()
 		{
 			using (lockOb_.Lock())
@@ -289,12 +239,6 @@ namespace Megahard.Threading
 				return fs;
 			}
 		}
-
-		/// <summary>
-		/// Sets the value *right* now, as long as an existing BeginSet is not in progress
-		/// </summary>
-		/// <param name="val"></param>
-		/// <returns>Returns true if the value was set, false otherwise.  False would indicate a BeginSet is outstanding</returns>
 		public bool SetValue(ValueType val)
 		{
 			using (lockOb_.Lock())
@@ -305,12 +249,6 @@ namespace Megahard.Threading
 				return true;
 			}
 		}
-
-
-		/// <summary>
-		/// Sets the value of the Future.  Each BeginSet needs a matching EndSet
-		/// </summary>
-		/// <param name="val"></param>
 		void EndSet(ValueType val)
 		{
 			using(var key = lockOb_.Lock())

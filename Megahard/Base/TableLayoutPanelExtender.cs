@@ -27,10 +27,6 @@ namespace System.Windows.Forms
 
 	public static class mhTableLayoutPanelExtender
 	{
-		/// <summary>
-		/// Remove a row from the TableLayout panel
-		/// </summary>
-		/// <returns>Returns a Dictionary of controls that were removed, key is the column the control was in</returns>
 		public static Megahard.TableLayoutPanelRowControls RemoveRow(this TableLayoutPanel panel, int row)
 		{
 			try
@@ -65,13 +61,6 @@ namespace System.Windows.Forms
 				panel.ResumeLayout();
 			}
 		}
-
-		/// <summary>
-		/// Insert a row in front of the specified row
-		/// </summary>
-		/// <param name="panel"></param>
-		/// <param name="row"></param>
-		/// <param name="ctls"></param>
 		public static void InsertRow(this TableLayoutPanel panel, int row, Megahard.TableLayoutPanelRowControls ctls)
 		{
 			try

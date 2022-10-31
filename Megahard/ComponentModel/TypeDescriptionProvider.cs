@@ -7,15 +7,8 @@ using System.Reflection;
 using System.ComponentModel;
 namespace Megahard.ComponentModel
 {
-	/// <summary>
-	/// Sets up a TypeDescriptor provider that will only be used when there is a specific instance of the type provided
-	/// It includes a nested provider
-	/// </summary>
 	public class InstanceOfTypeDescriptor<ThisType, DescribedType> : BlankTypeDescriptor where ThisType : InstanceOfTypeDescriptor<ThisType, DescribedType>, new()
 	{
-		/// <summary>
-		/// Guaranteed to be non-null
-		/// </summary>
 		protected DescribedType Instance
 		{
 			get;

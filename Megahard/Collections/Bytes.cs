@@ -5,11 +5,6 @@ using Megahard.ExtensionMethods;
 using System.IO;
 namespace Megahard.Collections.Specialized
 {
-	/// <summary>
-	/// Bytes class is intended as an immuttable array of bytes.  The array passed in is copied
-	/// and it provides no external access to that array, thus it is guaranteed that nobody can alter the array
-	/// data once this class is instatiated
-	/// </summary>
 	public partial class Bytes : Collections.ImmutableArray<byte>, IConvertible
 	{
         Bytes()
@@ -242,13 +237,6 @@ namespace Megahard.Collections.Specialized
 		{
 			return System.Text.Encoding.UTF8.GetString(byteArray_, index, count);
 		}
-
-
-		/// <summary>
-		/// Utility class for building up an array to then create a Bytes instance
-		/// usage of the Builder saves on an extra data copy that would otherwise be performed
-		/// </summary>
-		/// <returns></returns>
 		public new static Builder Build() { return new Builder(0); }
 		public new static Builder Build(int capacity) { return new Builder(capacity); }
 

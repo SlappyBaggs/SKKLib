@@ -70,11 +70,6 @@ namespace Megahard.Controls
 				return val_;
 			}
 		}
-
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing)
@@ -99,10 +94,6 @@ namespace Megahard.Controls
 		}
 
 		Data.ChildObservables childObs_;
-
-		/// <summary>
-		/// The object used as sender when firing Changed and Changing events
-		/// </summary>
 		protected virtual object EventSenderObject
 		{
 			get { return this; }
@@ -242,11 +233,6 @@ namespace Megahard.Controls
 				return;
 			RaiseObjectChanged(e.CreateChildInternal(childObs_.GetPropertyName(sender as Data.IObservableObject)));
 		}
-
-		/// <summary>
-		/// Register a delegate to be called whenever the specified property has changed
-		/// the arguments are oldval newval
-		/// </summary>
 
 		public AttachedObserver AttachObserver(PropertyPath prop, Action<ObjectChangedEventArgs> callback, Action<ObjectChangingEventArgs> changingCallback)
 		{

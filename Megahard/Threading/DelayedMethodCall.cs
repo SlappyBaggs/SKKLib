@@ -9,28 +9,10 @@ namespace Megahard.Threading
 {
 	public enum DelayedMethodCallState
 	{
-		/// <summary>
-		/// State is not defined, this shouldnt happen really
-		/// </summary>
 		Unknown,
-		/// <summary>
-		/// Execution is over and done with
-		/// </summary>
 		Executed,
-
-		/// <summary>
-		/// Currently executing, ie running the method
-		/// </summary>
 		Executing,
-
-		/// <summary>
-		/// Method was canceled, it never ran
-		/// </summary>
 		Canceled,
-
-		/// <summary>
-		/// Waiting to execute the method
-		/// </summary>
 		Delaying,
 	}
 	public abstract class DelayedMethodCall 
@@ -131,11 +113,6 @@ namespace Megahard.Threading
 				return CancelResult.NotCanceled;
 			}
 		}
-
-
-		/// <summary>
-		/// Cancels the DelayedMethodCall if TimeTillExecution exceedes argument
-		/// </summary>
 		public CancelResult CancelIf(TimeSpan ts)
 		{
 			using (lockOb_.Lock())
@@ -148,11 +125,6 @@ namespace Megahard.Threading
 			}
 
 		}
-
-		/// <summary>
-		/// If negative, it means it either already executed, is about to execute or it got canceled and never will execute
-		/// you need to call other funcs to find more info out about the state of things
-		/// </summary>
 		public TimeSpan TimeTillExecution
 		{
 			get

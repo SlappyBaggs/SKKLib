@@ -11,17 +11,9 @@ namespace Megahard.Design
 {
 	class StandardValuesUIEditor : SelectFromListTypeEditor
 	{
-		/// <summary>
-		/// <strong>ListBox</strong> which is dropped when the type contains standard values.
-		/// </summary>
-		/// 
 		class PaintValuesListBox : ListBox
 		{
 			StandardValuesUIEditor editor_;
-
-			/// <summary>
-			/// Creates a <strong>DropListBox</strong>.
-			/// </summary>
 			public PaintValuesListBox(StandardValuesUIEditor editor)
 			{
 				System.Diagnostics.Debug.Assert(editor != null && editor.GetPaintValueSupported());
@@ -30,10 +22,6 @@ namespace Megahard.Design
 				IntegralHeight = false;
 				DrawMode = DrawMode.OwnerDrawVariable;
 			}
-
-			/// <summary>
-			/// This member overrides <see cref="ListBox.OnDrawItem">ListBox.OnDrawItem</see>.
-			/// </summary>
 			protected override void OnDrawItem(System.Windows.Forms.DrawItemEventArgs e)
 			{
 				e.DrawBackground();

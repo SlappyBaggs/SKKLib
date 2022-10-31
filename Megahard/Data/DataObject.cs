@@ -217,10 +217,6 @@ namespace Megahard.Data
 		{ 
 			return prop_.GetValue(instance_);
 		}
-
-		/// <summary>
-		/// Returns value, or null, will not throw an exception no matter what
-		/// </summary>
 		object SafeGetValue()
 		{
 			try

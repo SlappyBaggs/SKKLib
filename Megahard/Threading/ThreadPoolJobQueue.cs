@@ -9,11 +9,6 @@ using ManualResetEventAlias = System.Threading.ManualResetEvent;
 namespace Megahard.Threading
 {
 	public enum JobQueueState { Undefined, Running, Stopping, Stopped }
-	/// <summary>
-	/// This is a job queue that is serviced by threads from the System thread ThreadPool
-	/// It is a separate class from the regular JobQueue because other than usage semantics, there
-	/// is almost no code overlap
-	/// </summary>
 	public class ThreadPoolJobQueue : IJobQueue, IDisposable
 	{
 		private readonly SynchronizedEventBacking<JobExceptionEventArgs> eh_ = new SynchronizedEventBacking<JobExceptionEventArgs>();

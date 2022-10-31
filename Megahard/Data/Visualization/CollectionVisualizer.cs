@@ -423,10 +423,6 @@ namespace Megahard.Data.Visualization
 		{
 			
 		}
-
-		/// <summary>
-		/// Listeners can set the NewItem property to what they want it to be, obviously last guy who sets it is the authority on it
-		/// </summary>
 		public object NewItem
 		{
 			get;

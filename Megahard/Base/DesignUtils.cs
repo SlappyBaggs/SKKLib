@@ -12,12 +12,6 @@ namespace Megahard.Design
 {
 	public static class Utils
 	{
-		/// <summary>
-		/// Turns a valid code name into something more human friendly, example:
-		/// ThisIsAProperty -> This is a property
-		/// </summary>
-		/// <param name="codeName"></param>
-		/// <returns></returns>
 		public static string GenerateDisplayName(MemberDescriptor md)
 		{
 			string codeName = md.DisplayName;

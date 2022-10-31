@@ -34,10 +34,6 @@ namespace Megahard.CodeDom
 		public string Type;
 		public bool CanSet;
 	}
-
-	/// <summary>
-	/// Helper class for making the usage of CodeDom a bit less tedious
-	/// </summary>
 	public static class CodeDom
 	{
 		public static CodeNamespace DeclareNamespace(string s)
@@ -802,11 +798,6 @@ namespace Megahard.CodeDom
 			c.AddMember(ctor);
 			return ctor;
 		}
-
-		/// <summary>
-		/// Creates a constructor that takes args which initialize existing member fields
-		/// </summary>
-		/// <param name="fields">The fields to initialize</param>
 		public static CodeConstructor MakeConstructor(this CodeTypeDeclaration c, params string[] fields)
 		{
 			

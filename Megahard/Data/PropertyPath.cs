@@ -10,11 +10,6 @@ using System.Diagnostics;
 
 namespace Megahard.Data
 {
-	/// <summary>
-	/// Represent a property than can be located given a reference object, this class is immutable, once it is created
-	/// the Path cannot be changed
-	/// We no support indexers but only if they use one argument
-	/// </summary>
 	[TypeConverter(typeof(PropertyPath.Converter))]
 	[System.Diagnostics.DebuggerDisplay("{Path}")]
 	public struct PropertyPath
@@ -168,10 +163,6 @@ namespace Megahard.Data
 			var prop = ResolveProperty(ref reference);
 			return prop.GetValue(reference);
 		}
-
-		/// <summary>
-		/// Attempts to the property value on reference with val, SmartConvert is used to attempt conversion of val to PropertyType if needed
-		/// </summary>
 		public void SetValue(object reference, object val)
 		{
 			if (IsEmpty)
@@ -179,12 +170,6 @@ namespace Megahard.Data
 			var prop = ResolveProperty(ref reference);
 			prop.SetValue(reference, SmartConvert.ConvertTo(val, prop.PropertyType, prop.Converter));
 		}
-
-		/// <summary>
-		/// Calcultes prop1 - prop2 = C
-		/// Returns path C such that prop1 = prop2 + C
-		/// If no such C can be calculated InvalidOperatorException is thrown
-		/// </summary>
 		public static PropertyPath DifferencePath(PropertyPath prop1, PropertyPath prop2)
 		{
 			if (!prop1.IsDescendantOf(prop2))
@@ -205,11 +190,6 @@ namespace Megahard.Data
 			int len = s.Length;
 			return len > 1 && s[0] == '[' && s[len - 1] == ']';
 		}
-
-		/// <summary>
-		/// Evaluates the PropertyPath against the given object, until it gets to the final portion of the
-		/// path, upon which it returns that, and the reference is updated to be the object to use with the property
-		/// </summary>
 		public PropertyDescriptor ResolveProperty(ref object reference)
 		{
 			if (IsEmpty)
@@ -242,10 +222,6 @@ namespace Megahard.Data
 				throw new FailedToResolvePropertyException(this, e);
 			}
 		}
-
-		/// <summary>
-		/// Tries to resolve the property using the reference, if that fails, it resolves it using the reference Type
-		/// </summary>
 		public PropertyDescriptor ResolveProperty(object reference)
 		{
 			if (reference == null)
@@ -260,12 +236,6 @@ namespace Megahard.Data
 				return ResolveProperty(reference.GetType());
 			}
 		}
-
-		/// <summary>
-		/// Attempts to Resolve this Path into a PropertyDescriptor using the specified Type as a starting point.
-		/// This method operates solely on Types, as such Attributes, Properties, etc applied to individual instances
-		/// of objects will not be used
-		/// </summary>
 		public PropertyDescriptor ResolveProperty(Type obType)
 		{
 			if (IsEmpty)
@@ -287,10 +257,6 @@ namespace Megahard.Data
 				throw new FailedToResolvePropertyException(this, e);
 			}
 		}
-
-		/// <summary>
-		/// Determines if this PropertyPath evaluates to a PropertyDescriptor with the given object argument
-		/// </summary>
 		public bool IsValid(object reference)
 		{
 			try

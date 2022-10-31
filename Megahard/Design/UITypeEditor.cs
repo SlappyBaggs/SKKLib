@@ -9,10 +9,6 @@ using System.Windows.Forms;
 
 namespace Megahard.Design
 {
-	/// <summary>
-	/// All the Megahard.Design TypeEditors derive from this instead of System.Drawing.Design.UITypeEditor
-	/// As this provides easier shared commonality of all the Megahard TypeEditors
-	/// </summary>
 	public class UITypeEditor : System.Drawing.Design.UITypeEditor
 	{
 		private UITypeEditorEditStyleAlias editorStyle_ = UITypeEditorEditStyleAlias.DropDown;

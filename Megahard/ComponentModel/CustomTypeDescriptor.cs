@@ -2,9 +2,6 @@
 using System.ComponentModel;
 namespace Megahard.ComponentModel
 {
-	/// <summary>
-	/// This CustomTypeDescriptor returns null for all members
-	/// </summary>
 	public class BlankTypeDescriptor : System.ComponentModel.ICustomTypeDescriptor
 	{
 		#region ICustomTypeDescriptor Members
@@ -81,10 +78,6 @@ namespace Megahard.ComponentModel
 			get { return s_Null; }
 		}
 	}
-
-	/// <summary>
-	/// This CustomTypeDescriptor has a parent and a child, it first tries the child, if it returns null, it then tries the parent
-	/// </summary>
 	public class DelegatingTypeDescriptor : ICustomTypeDescriptor
 	{
 		public DelegatingTypeDescriptor(ICustomTypeDescriptor parent, ICustomTypeDescriptor child)

@@ -10,13 +10,6 @@ namespace Megahard.Controls
 	 * perhaps investigate more when time permits
 	 */
 
-	/// <summary>
-	/// This is not even remote a full type safe box, but it does provide a little bit
-	/// of help
-	/// </summary>
-	/// <typeparam name="T">the type if item in the combo box list</typeparam>
-	/// 
-
 	public class TypedComboBox<ItemType, ValueType> : ComboBox
 	{
 		public TypedComboBox()

@@ -7,25 +7,10 @@ using System.ComponentModel;
 
 namespace Megahard
 {
-	/// <summary>
-	/// This interface provides a unified method of providing event handlers a means of
-	/// firing events
-	/// </summary>
 	public interface IEventExecutor
 	{
-		/// <summary>
-		/// onException may be null
-		/// </summary>
 		void FireEvent(EventHandler eh, object sender, EventArgs args, Action<Exception> onException);
-
-		/// <summary>
-		/// onException may be null
-		/// </summary>
 		void FireEvent<T>(EventHandler<T> eh, object sender, T args, Action<Exception> onException) where T : EventArgs;
-
-		/// <summary>
-		/// onException may be null
-		/// </summary>
 		void FireEvent(Delegate d, object sender, EventArgs args, Action<Exception> onException);
 	}
 

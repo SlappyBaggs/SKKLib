@@ -15,12 +15,6 @@ namespace System
 			//return dispName.DisplayName;
 			return "FUCK YOU";
 		}
-
-		/// <summary>
-		/// Returns the interfaces the type directly derives from (ie excluding inherited ifaces
-		/// </summary>
-		/// <param name="t"></param>
-		/// <returns></returns>
 		public static IEnumerable<Type> GetDirectInterfaces(this Type t)
 		{
 			Type[] ifaces = t.GetInterfaces();
@@ -106,12 +100,6 @@ namespace System
 		{
 			return t.GetConstructor(new Type[] { typeof(Arg1Type), typeof(Arg2Type), typeof(Arg3Type), typeof(Arg4Type), typeof(Arg5Type)});
 		}
-
-		/// <summary>
-		/// Returns all public index properties in a type
-		/// </summary>
-		/// <param name="t"></param>
-		/// <returns></returns>
 		public static IEnumerable<PropertyInfo> GetIndexProperties(this Type t)
 		{
 			foreach (var prop in t.GetProperties())

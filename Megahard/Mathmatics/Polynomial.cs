@@ -5,9 +5,6 @@ using System.Text;
 
 namespace Megahard.Mathematics
 {
-	/// <summary>
-	/// A Univariate Polynomial of degree N
-	/// </summary>
 	public class Polynomial
 	{
 		public Polynomial(params double[] coefficients)

@@ -8,11 +8,6 @@ namespace Megahard.Reflection
 {
 	public static class ReflectionUtils
 	{
-		/// <summary>
-		/// Expands a namespace into a list
-		/// </summary>
-		/// <param name="s">Namespace: e.g. System.Reflection</param>
-		/// <returns></returns>
 		public static List<string> ExpandNameSpace(string s)
 		{
 			List<string> ret = new List<string>();

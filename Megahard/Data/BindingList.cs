@@ -36,11 +36,6 @@ namespace Megahard.Data
 			return locker_.Lock();
 		}
 	}
-	/// <summary>
-	/// This class is fully thread safe which means yes even iteration is
-	/// This is an implementation of IBindingList which is Syncronized, and does not support
-	/// modification of the list by external parties, events are fired via IEventExecutor interface
-	/// </summary>
 	public class BindingList<ListType> : BindingListBase, IBindingList, IEnumerable<ListType>, IRaiseItemChangedEvents
 	{
 

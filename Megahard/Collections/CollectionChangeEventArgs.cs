@@ -28,22 +28,10 @@ namespace Megahard.Data
 			Item = item;
 			Property = prop;
 		}
-
-		/// <summary>
-		/// The name of the property that changed, always null except when ChangeType is ItemPropertyChanged
-		/// </summary>
 		public PropertyPath Property { get; private set; }
 
 
 		public CollectionChangeType ChangeType { get; private set; }
-		/// <summary>
-		/// Meaning of value depends on ChangeType
-		/// ItemAdded - index of the newly added item
-		/// ItemRemoved - index the item used to be in
-		/// ItemChanged - index slot of the item that changed
-		/// ItemPropertyChanged - always -1, you can lookup the index of item if u want it, saves a little cpu by not auto setting it
-		/// Reset - value is -1 and has no meaning
-		/// </summary>
 		public int Index { get; private set; }
 		public object Item { get; private set; }
 	}
@@ -59,10 +47,6 @@ namespace Megahard.Data
 		{
 			this.Item = item;
 		}
-		
-		/// <summary>
-		/// The item the event is happening to, for Reset this is null or 0
-		/// </summary>
 		public new T Item { get; private set; }
 	}
 }

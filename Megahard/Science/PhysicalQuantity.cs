@@ -301,9 +301,6 @@ namespace Megahard.Science
 
 	public class PhysicalUnit
 	{
-		/// <summary>
-		/// baseMult is how many base units equal one of this unit
-		/// </summary>
 		public PhysicalUnit(string symbol, string name, BaseQuantity baseQ, double baseMult)
 		{
 			propSymbol_ = symbol;
