@@ -295,6 +295,8 @@ namespace SKKLib.DB.DataOb
         protected virtual void PreSave() { }
         protected virtual void PostSave() { }
 
+        protected virtual bool ConfirmSaveTable(string tableName) => true;
+
         // Pass in a specific table name to get a save query for just that table
         // If table name is omitted, returns save queries for all tables
         private List<string> SaveToDB_New(string tableName = "")
@@ -304,6 +306,7 @@ namespace SKKLib.DB.DataOb
             List<string> ret = new List<string>();
             foreach (string key in saveData.Keys)   // No need to filter here by tableName, GetSaveData should handle that...
             {
+                if (!ConfirmSaveTable(key)) continue;
                 string props = "";
                 string vals = "";
                 foreach ((string PropertyField, string Value) tup in saveData[key])
@@ -329,6 +332,7 @@ namespace SKKLib.DB.DataOb
             List<string> ret = new List<string>();
             foreach (string key in saveData.Keys)
             {
+                if (!ConfirmSaveTable(key)) continue;
                 string sql = $"UPDATE {key} SET ";
                 foreach ((string PropertyField, string Value) tup in saveData[key]) sql += $"{tup.PropertyField}={tup.Value},";
                 sql = sql.Substring(0, sql.Length - 1);
