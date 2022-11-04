@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using SKKLib.SystemLib;
 using SKKLib.DB;
 using System.Data.Odbc;
+using System.Data.Common;
 
 namespace SKKLib.DB.DataOb
 {
@@ -21,7 +22,7 @@ namespace SKKLib.DB.DataOb
         protected static string DataObDateFormat { get; private set; }
     }
 
-    public abstract class SKKDataOb<DATAOBTYPE> : SKKDataObBase
+    public abstract class SKKDataOb<DATAOBTYPE> : SKKDataObBase, ISKKDataOb
     {
         protected SKKDataOb(string primKeyString, bool newDataOb, object data = null)
         {
@@ -93,7 +94,7 @@ namespace SKKLib.DB.DataOb
 
                     IDataReader rdr = db.ExecuteReader(mySQL);
 
-                    if ((rdr as OdbcDataReader).HasRows)
+                    if ((rdr as DbDataReader).HasRows)
                     {
                         bool didRead = rdr.Read();
 

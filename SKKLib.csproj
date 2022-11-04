@@ -118,6 +118,7 @@
       <DependentUpon>_TestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DB\AccessToDataSet.cs" />
+    <Compile Include="DB\DataOb\ISKKDataOb.cs" />
     <Compile Include="DB\DataOb\SKKDataObAttributes.cs" />
     <Compile Include="DB\DataOb\SKKDataOb.cs" />
     <Compile Include="DB\Elements\Column.cs" />
