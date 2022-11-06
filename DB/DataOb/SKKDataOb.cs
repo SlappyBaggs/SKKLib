@@ -352,8 +352,9 @@ namespace SKKLib.DB.DataOb
             Attribute[] classAttrs = Attribute.GetCustomAttributes(typeof(DATAOBTYPE), typeof(SKKDataObComponentTableAttribute));
             foreach (Attribute a in classAttrs)
             {
+                // If we only have 1 ComponentTable attribute, then make it the default table...
                 SKKDataObComponentTableAttribute sa = a as SKKDataObComponentTableAttribute;
-                myTables.Add(new SKKDataObComponentTable(sa.TableName, sa.TableKey, sa.DefaultTable));
+                myTables.Add(new SKKDataObComponentTable(sa.TableName, sa.TableKey, (classAttrs.Count() == 1) ? true : sa.DefaultTable));
             }
         }
         #endregion

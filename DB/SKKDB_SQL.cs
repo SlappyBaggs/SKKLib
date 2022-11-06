@@ -26,10 +26,8 @@ namespace SKKLib.DB
 
         public DBObSQL(string fileName = null)
         {
-            using (var dd = SKKDebugDepth.Get($"{DBGName}","SKKLib.DBobSQL.Constructor"))
-            {
-                if (fileName != null) Load(fileName);
-            }
+            using var dd = SKKDebugDepth.Get($"{DBGName}", "SKKLib.DBobSQL.Constructor");
+            if (fileName != null) Load(fileName);
         }
 
         public string MyConnString { get => myDBSettings?.ConnectionStringSQL; }
@@ -38,41 +36,37 @@ namespace SKKLib.DB
 
         public void Load(string file = null)
         {
-            using (var dd = SKKDebugDepth.Get($"{DBGName}", $"SKKLib.DBObSQL.Load({file}"))
+            using var dd = SKKDebugDepth.Get($"{DBGName}", $"SKKLib.DBObSQL.Load({file}");
+            //DBG($"DBObSQL::Load Config File: {file}");
+            Loaded = false;
+            if (file == null) return;
+            try
             {
-                //DBG($"DBObSQL::Load Config File: {file}");
-                Loaded = false;
-                if (file == null) return;
-                try
-                {
-                    myDBSettings = JsonConvert.DeserializeObject<DBSettings>(File.ReadAllText(file));
-                }
-                catch(Exception ex)
-                {
-                    Controls.Forms.MessageBox.ShowMessage(ex.Message, "DBObSQL Exception"); 
-                    return;
-                }
-                Loaded = true;
+                myDBSettings = JsonConvert.DeserializeObject<DBSettings>(File.ReadAllText(file));
             }
+            catch (Exception ex)
+            {
+                Controls.Forms.MessageBox.ShowMessage(ex.Message, "DBObSQL Exception");
+                return;
+            }
+            Loaded = true;
         }
 
         public void Open(bool ino = false)
         {
-            using (var dd = SKKDebugDepth.Get($"{DBGName}", "SKKLib.DBObSQL.Open"))
-            {
-                if (!Loaded) return;    // Throw??
-                if (ino && IsOpen) return;     // Throw?
+            using var dd = SKKDebugDepth.Get($"{DBGName}", "SKKLib.DBObSQL.Open");
+            if (!Loaded) return;    // Throw??
+            if (ino && IsOpen) return;     // Throw?
 
-                try
-                {
-                    myConn = new MySqlConnection(MyConnString);
-                    myConn.Open();
-                }
-                catch (Exception ex)
-                {
-                    Controls.Forms.MessageBox.ShowMessage(ex.Message, "DBObSQL Exception");
-                    return;
-                }
+            try
+            {
+                myConn = new MySqlConnection(MyConnString);
+                myConn.Open();
+            }
+            catch (Exception ex)
+            {
+                Controls.Forms.MessageBox.ShowMessage(ex.Message, "DBObSQL Exception");
+                return;
             }
         }
         public void Close() => myConn?.Close();
