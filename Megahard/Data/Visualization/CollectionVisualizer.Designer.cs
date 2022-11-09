@@ -93,7 +93,7 @@ namespace Megahard.Data.Visualization
 			// 
 			// moveDownCmd_
 			// 
-			this.moveDownCmd_.ImageSmall = global::Megahard.Properties.Resources.arrow_left;
+			//this.moveDownCmd_.ImageSmall = global::Megahard.Properties.Resources.arrow_left;
 			this.moveDownCmd_.Execute += new System.EventHandler(this.moveDownCmd__Execute);
 			// 
 			// buttonSpecAny4
@@ -105,7 +105,7 @@ namespace Megahard.Data.Visualization
 			// 
 			// moveUpCmd_
 			// 
-			this.moveUpCmd_.ImageSmall = global::Megahard.Properties.Resources.arrow_right;
+			//this.moveUpCmd_.ImageSmall = global::Megahard.Properties.Resources.arrow_right;
 			this.moveUpCmd_.Execute += new System.EventHandler(this.moveUpCmd__Execute);
 			// 
 			// listBox_

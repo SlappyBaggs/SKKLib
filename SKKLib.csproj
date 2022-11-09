@@ -138,11 +138,17 @@
     <Compile Include="Handlers\MouseHandler.cs" />
     <Compile Include="Handlers\User32Handler.cs" />
     <Compile Include="Handlers\WindowHandler.cs" />
+    <Compile Include="Icons\SKKIcons.cs" />
     <Compile Include="Imaging\ImageCore.cs" />
     <Compile Include="Handlers\GDI32Handler.cs" />
     <Compile Include="Math\CurveFit.cs" />
     <Compile Include="Math\Point2.cs" />
     <Compile Include="Math\Polynomial.cs" />
+    <Compile Include="Properties\Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="TypeLib\RandomNums.cs" />
     <Compile Include="TypeLib\RandomNames.cs" />
     <Compile Include="TypeLib\RandomString.cs" />
@@ -247,12 +253,11 @@
       <DependentUpon>DataBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Megahard\Controls\DataBox.Transformed.cs">
-      <DependentUpon>DataBox.cs</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>UserControl</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Megahard\Controls\DataBoxDesigner.cs" />
+		<DependentUpon>DataBox.cs</DependentUpon>
+		<AutoGen>True</AutoGen>
+		<SubType>UserControl</SubType>
+	    <DesignTime>True</DesignTime>
+	</Compile>    <Compile Include="Megahard\Controls\DataBoxDesigner.cs" />
     <Compile Include="Megahard\Controls\DataBoxLabelEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -649,7 +654,6 @@
     <Compile Include="Megahard\Threading\ThreadPoolJobQueue.cs" />
     <Compile Include="Printing\SKKPrinting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs" />
     <Compile Include="Serial\Base\SKKLink.cs" />
     <Compile Include="Serial\Base\SKKReader.cs" />
     <Compile Include="Serial\Base\SKKWriter.cs" />
@@ -838,7 +842,11 @@
       <DependentUpon>UITask.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>GlobalResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>SKKLib.Properties</CustomToolNamespace>
+    </EmbeddedResource>
     <EmbeddedResource Include="Serial\Controls\SKKSerialSelectBox.resx">
       <DependentUpon>SKKSerialSelectBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -891,13 +899,13 @@
     <EmbeddedResource Include="Megahard\Icons\Switch.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Megahard\Resources\arrow_left.png" />
+    <EmbeddedResource Include="Megahard\Resources\arrow_left.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Megahard\Resources\arrow_right.png" />
+    <EmbeddedResource Include="Megahard\Resources\arrow_right.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Megahard\Serialization\SerializationDoc.txt" />
+    <None Include="Resources\Arrows.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

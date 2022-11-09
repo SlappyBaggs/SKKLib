@@ -13,7 +13,7 @@ using ComponentFactory.Krypton.Toolkit;
 using Megahard.ExtensionMethods;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
-
+using Megahard.Data.Visualization;
 
 namespace Megahard.Data.Controls
 {

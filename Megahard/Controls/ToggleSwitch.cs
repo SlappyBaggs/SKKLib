@@ -28,7 +28,7 @@ namespace Megahard.Controls
 		{
 			InitializeComponent();
 
-			ToggleImageOn = Properties.Resources.ToggleSwitch01;
+			//ToggleImageOn = Properties.Resources.ToggleSwitch01;
 			imageOff_ = null;
 			toggled_ = false;
 			imageAttributes_.SetColorKey(Color.Magenta, Color.Magenta);
@@ -59,8 +59,8 @@ namespace Megahard.Controls
 			get { return imageOn_; }
 			set
 			{
-				if (value == null)
-					value = Properties.Resources.ToggleSwitch01;
+				//if (value == null)
+					//value = Properties.Resources.ToggleSwitch01;
 
 				if (value == ToggleImageOn)
 					return;
@@ -71,11 +71,11 @@ namespace Megahard.Controls
 
 		bool ShouldSerializeToggleImageOn()
 		{
-			return ToggleImageOn == Properties.Resources.ToggleSwitch01;
+			return false;//return ToggleImageOn == Properties.Resources.ToggleSwitch01;
 		}
 		void ResetToggleImageOn()
 		{
-			ToggleImageOn = Properties.Resources.ToggleSwitch01;
+			//ToggleImageOn = Properties.Resources.ToggleSwitch01;
 		}
 		private Image imageOn_;
 
