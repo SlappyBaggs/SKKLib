@@ -88,6 +88,7 @@
       <DependentUpon>SKKComboListBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\Controls\SKKValidators.cs" />
+    <Compile Include="Controls\Data\SKKPadding.cs" />
     <Compile Include="Controls\Data\SKKData.cs" />
     <Compile Include="Controls\Forms\InputBox.cs">
       <SubType>Form</SubType>
@@ -253,11 +254,12 @@
       <DependentUpon>DataBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Megahard\Controls\DataBox.Transformed.cs">
-		<DependentUpon>DataBox.cs</DependentUpon>
-		<AutoGen>True</AutoGen>
-		<SubType>UserControl</SubType>
-	    <DesignTime>True</DesignTime>
-	</Compile>    <Compile Include="Megahard\Controls\DataBoxDesigner.cs" />
+      <DependentUpon>DataBox.cs</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>UserControl</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Megahard\Controls\DataBoxDesigner.cs" />
     <Compile Include="Megahard\Controls\DataBoxLabelEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
