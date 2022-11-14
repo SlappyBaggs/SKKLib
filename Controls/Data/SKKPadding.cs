@@ -43,11 +43,20 @@ namespace SKKLib.Controls.Data
 
         public static SKKPadding operator +(SKKPadding pad1, SKKPadding pad2) => new SKKPadding(pad1.Left + pad2.Left, pad1.Top + pad2.Top, pad1.Right + pad2.Right, pad1.Bottom + pad2.Bottom);
         public static SKKPadding operator +(SKKPadding pad1, Padding pad2) => new SKKPadding(pad1.Left + pad2.Left, pad1.Top + pad2.Top, pad1.Right + pad2.Right, pad1.Bottom + pad2.Bottom);
-        public static Padding operator + (Padding pad1, SKKPadding pad2) => new Padding(pad1.Left + pad2.Left, pad1.Top + pad2.Top, pad1.Right + pad2.Right, pad1.Bottom + pad2.Bottom); 
-    
+        public static Padding operator + (Padding pad1, SKKPadding pad2) => new Padding(pad1.Left + pad2.Left, pad1.Top + pad2.Top, pad1.Right + pad2.Right, pad1.Bottom + pad2.Bottom);
+
+        public override bool Equals(object o) => base.Equals(o);
+        public override int GetHashCode() => base.GetHashCode();
+
+        public static bool Equals(SKKPadding left, SKKPadding right) => left == right;
+        public static bool operator ==(SKKPadding pad1, SKKPadding pad2) => (pad1.Left == pad2.Left) && (pad1.Top == pad2.Top) && (pad1.Right == pad2.Right) && (pad1.Bottom == pad2.Bottom);
+        public static bool operator !=(SKKPadding pad1, SKKPadding pad2) => (pad1.Left != pad2.Left) || (pad1.Top != pad2.Top) || (pad1.Right != pad2.Right) || (pad1.Bottom != pad2.Bottom);
+
+        public static bool Equals(Padding left, SKKPadding right) => left == right;
         public static bool operator == (Padding pad1, SKKPadding pad2) => (pad1.Left == pad2.Left) && (pad1.Top == pad2.Top) && (pad1.Right == pad2.Right) && (pad1.Bottom == pad2.Bottom);
         public static bool operator !=(Padding pad1, SKKPadding pad2) => (pad1.Left != pad2.Left) || (pad1.Top != pad2.Top) || (pad1.Right != pad2.Right) || (pad1.Bottom != pad2.Bottom);
 
+        public static bool Equals(SKKPadding left, Padding right) => left == right;
         public static bool operator == (SKKPadding pad1, Padding pad2) => (pad1.Left == pad2.Left) && (pad1.Top == pad2.Top) && (pad1.Right == pad2.Right) && (pad1.Bottom == pad2.Bottom);
         public static bool operator !=(SKKPadding pad1, Padding pad2) => (pad1.Left != pad2.Left) || (pad1.Top != pad2.Top) || (pad1.Right != pad2.Right) || (pad1.Bottom != pad2.Bottom);
     }
