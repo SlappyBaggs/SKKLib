@@ -40,6 +40,19 @@ namespace SKKLib.Controls.Data
             set => Left = Right = Top = Bottom = value;
         }
         public Size Size { get => new Size(Horizontal, Vertical); }
+        public override string ToString() => $"{Left},{Top},{Right},{Bottom}";
+
+        public void FromString(string s)
+        {
+            string[] sa = s.Split(',');
+            int[] ints = Array.ConvertAll(sa, s => int.TryParse(s, out int x) ? x : -1);
+            if (ints.Length != 4) throw new InvalidOperationException("Invalid number of padding values");
+            if (ints.Contains(-1)) throw new InvalidOperationException("Unparsable value");
+            Left = ints[0];
+            Top = ints[1];
+            Right = ints[2];
+            Bottom = ints[3];
+        }
 
         public static SKKPadding operator +(SKKPadding pad1, SKKPadding pad2) => new SKKPadding(pad1.Left + pad2.Left, pad1.Top + pad2.Top, pad1.Right + pad2.Right, pad1.Bottom + pad2.Bottom);
         public static SKKPadding operator +(SKKPadding pad1, Padding pad2) => new SKKPadding(pad1.Left + pad2.Left, pad1.Top + pad2.Top, pad1.Right + pad2.Right, pad1.Bottom + pad2.Bottom);
