@@ -13,6 +13,8 @@ namespace SKKLib.Imaging
 
     public static class ImageCore
     {
+        private static object _locker = new object();
+
         public static string ClassifyColor(Color c)
         {
             float hue = c.GetHue();
@@ -32,7 +34,7 @@ namespace SKKLib.Imaging
             if (hue < 330) return "Magentas";
             return "Reds";
         }
-            
+
         public static bool ColorsWithinTolerance(Color c1, Color c2, int tol = 0)
         {
             /*
@@ -61,7 +63,7 @@ namespace SKKLib.Imaging
                 ((c1.B + tol) >= c2.B));
         }
 
-        
+
         public static event ImagingErrorEventHandler ImagingErrorEvent;
         public static event ImagingDebugEventHandler ImagingDebugEvent;
 
@@ -88,14 +90,14 @@ namespace SKKLib.Imaging
         }
 
         public static Color GetColorFromScreen(Point p) => GetColorFromScreen(p.X, p.Y);
-        
-/*
-        [DllExport()]
-        public static Int32 GetColFromScr(int x, int y) => GetColorFromScreen(x, y).ToArgb();
 
-        [DllExport()]
-        public static Color GetColorFromScreenPY(int x, int y) => GetColorFromScreen(x, y);
-*/
+        /*
+                [DllExport()]
+                public static Int32 GetColFromScr(int x, int y) => GetColorFromScreen(x, y).ToArgb();
+
+                [DllExport()]
+                public static Color GetColorFromScreenPY(int x, int y) => GetColorFromScreen(x, y);
+        */
         public static Color GetColorFromScreen(int x, int y)
         {
 #if BADONGO
@@ -158,25 +160,52 @@ namespace SKKLib.Imaging
             return null;
         }
 
-        public static Bitmap ResizeBMP(Bitmap bmp, float fac) => ResizeBMP(bmp, (int)(bmp.Width * fac), (int)(bmp.Height * fac));
+        public static Image ResizeIMG(Image img, float fac) { lock (_locker) { return ResizeIMG(img, (int)(img.Width * fac), (int)(img.Height * fac)); } }
+        public static Image ResizeIMG(Image img, int w, int h)
+        {
+            lock (_locker)
+            {
+                try
+                {
+                    using (Image ret = new Bitmap(w, h))
+                    {
+                        using (Graphics g = Graphics.FromImage(ret))
+                        {
+                            g.DrawImage(img, 0, 0, w, h);
+                        }
+                        return (Image)ret.Clone();
+                    }
+                }
+                catch (Exception e)
+                {
+                    DoImageError(e);
+                }
+                return null;
+            }
+        }
+
+        public static Bitmap ResizeBMP(Bitmap bmp, float fac) { lock (_locker) { return ResizeBMP(bmp, (int)(bmp.Width * fac), (int)(bmp.Height * fac)); } }
         public static Bitmap ResizeBMP(Bitmap bmp, int w, int h)
         {
-            try
+            lock (_locker)
             {
-                using (Bitmap ret = new Bitmap(w, h))
+                try
                 {
-                    using (Graphics g = Graphics.FromImage(ret))
+                    using (Bitmap ret = new Bitmap(w, h))
                     {
-                        g.DrawImage(bmp, 0, 0, w, h);
+                        using (Graphics g = Graphics.FromImage(ret))
+                        {
+                            g.DrawImage(bmp, 0, 0, w, h);
+                        }
+                        return (Bitmap)ret.Clone();
                     }
-                    return (Bitmap)ret.Clone();
                 }
+                catch (Exception e)
+                {
+                    DoImageError(e);
+                }
+                return null;
             }
-            catch (Exception e)
-            {
-                DoImageError(e);
-            }
-            return null;
         }
 
         private static Rectangle destRec = new Rectangle(0, 0, 140, 108);
@@ -186,7 +215,8 @@ namespace SKKLib.Imaging
         public static Bitmap GetSubBMP(Bitmap bmp, Point p, Size s) => GetSubBMP(bmp, p.X, p.Y, s.Width, s.Height);
         public static Bitmap GetSubBMP(Bitmap bmp, int sx, int sy, Size s) => GetSubBMP(bmp, sx, sy, s.Width, s.Height);
         public static Bitmap GetSubBMP(Bitmap bmp, Point p, int w, int h) => GetSubBMP(bmp, p.X, p.Y, w, h);
-        public static Bitmap GetSubBMP(Bitmap bmp, int sx, int sy, int w, int h)
+        public static Bitmap GetSubBMP(Bitmap bmp, int sx, int sy, int w, int h) => GetSubBMP(bmp, destRec, sx, sy, w, h);
+        public static Bitmap GetSubBMP(Bitmap bmp, Rectangle dr, int sx, int sy, int w, int h)
         {
             try
             {
@@ -194,7 +224,7 @@ namespace SKKLib.Imaging
                 {
                     using (Graphics g = Graphics.FromImage(ret))
                     {
-                        g.DrawImage(bmp, destRec, sx, sy, w, h, GraphicsUnit.Pixel);
+                        g.DrawImage(bmp, dr, sx, sy, w, h, GraphicsUnit.Pixel);
                     }
                     return (Bitmap)ret.Clone();
                 }
@@ -205,7 +235,7 @@ namespace SKKLib.Imaging
             }
             return null;
         }
-        
+
         public static Bitmap AddRect(Bitmap bmp, Rectangle r, Color c, float w = 1.0f)
         {
             try
