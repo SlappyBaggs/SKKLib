@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
 using System.Drawing;
 using System.Linq;
@@ -10,8 +11,12 @@ using System.Windows.Forms;
 
 namespace SKKLib.Controls.Data
 {
-    public struct SKKPadding
+    public class SKKPadding
     {
+        public SKKPadding()
+        {
+        }
+
         public SKKPadding(int pad)
         {
             All = pad;
@@ -40,8 +45,31 @@ namespace SKKLib.Controls.Data
             set => Left = Right = Top = Bottom = value;
         }
         public Size Size { get => new Size(Horizontal, Vertical); }
-        public override string ToString() => $"{Left},{Top},{Right},{Bottom}";
 
+        private static ErrorProvider errorProvider = new ErrorProvider();
+
+        public static void SKKPaddingValidating(object sender, CancelEventArgs e)
+        {
+            if ((((Control)sender).Text != "") && (e.Cancel = !SKKPadding.TryParse(((Control)sender).Text, out _))) errorProvider.SetError(((Control)sender), $"Invalid Padding");
+            else errorProvider.SetError((sender as Control), "");
+        }
+
+        public string PaddingS
+        {
+            get => ToString();
+            set
+            {
+                SKKPadding p;
+                if (TryParse(value, out p))
+                {
+                    Left = p.Left;
+                    Right = p.Right;
+                    Top = p.Top;
+                    Bottom = p.Bottom;
+                }
+            }
+        }
+        public override string ToString() => $"{Left},{Top},{Right},{Bottom}";
         public void FromString(string s)
         {
             string[] sa = s.Split(',');
@@ -53,6 +81,20 @@ namespace SKKLib.Controls.Data
             Right = ints[2];
             Bottom = ints[3];
         }
+
+        public static bool TryParse(string s, out SKKPadding p)
+        {
+            p = new SKKPadding();
+            string[] sa = s.Split(',');
+            int[] ints = Array.ConvertAll(sa, s => int.TryParse(s, out int x) ? x : -1);
+            if ((ints.Length != 4) || (ints.Contains(-1))) return false;
+            p.Left = ints[0];
+            p.Top = ints[1];
+            p.Right = ints[2];
+            p.Bottom = ints[3];
+            return true;
+        }
+
 
         public static SKKPadding operator +(SKKPadding pad1, SKKPadding pad2) => new SKKPadding(pad1.Left + pad2.Left, pad1.Top + pad2.Top, pad1.Right + pad2.Right, pad1.Bottom + pad2.Bottom);
         public static SKKPadding operator +(SKKPadding pad1, Padding pad2) => new SKKPadding(pad1.Left + pad2.Left, pad1.Top + pad2.Top, pad1.Right + pad2.Right, pad1.Bottom + pad2.Bottom);

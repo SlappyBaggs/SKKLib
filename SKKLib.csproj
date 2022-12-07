@@ -87,6 +87,7 @@
     <Compile Include="Controls\Controls\SKKComboListBox.Designer.cs">
       <DependentUpon>SKKComboListBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Controls\SKKDblClickTextBox.cs" />
     <Compile Include="Controls\Controls\SKKValidators.cs" />
     <Compile Include="Controls\Data\SKKPadding.cs" />
     <Compile Include="Controls\Data\SKKData.cs" />
