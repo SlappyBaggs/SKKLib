@@ -157,6 +157,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SystemLib\Extensions\Size.cs" />
     <Compile Include="TypeLib\RandomNums.cs" />
     <Compile Include="TypeLib\RandomNames.cs" />
     <Compile Include="TypeLib\RandomString.cs" />
