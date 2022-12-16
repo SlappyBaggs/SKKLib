@@ -236,7 +236,55 @@ namespace SKKLib.Imaging
             return null;
         }
 
-        public static Bitmap AddRect(Bitmap bmp, Rectangle r, Color c, float w = 1.0f)
+        public static void AddRect0(ref Image bmp, Rectangle r, Color c, float w = 1.0f)
+        {
+            try
+            {
+                using (Pen p = new Pen(c, w))
+                {
+                    AddRect0(ref bmp, r, p);
+                }
+            }
+            catch (Exception ex)
+            {
+                DoImageError(ex);
+            }
+        }
+
+        public static void AddRect0(ref Image bmp, Rectangle r, Brush b, float w = 1.0f)
+        {
+            try
+            {
+                using (Pen p = new Pen(b, w))
+                {
+                    AddRect0(ref bmp, r, p);
+                }
+            }
+            catch (Exception ex)
+            {
+                DoImageError(ex);
+            }
+            //return bmp;
+        }
+
+        public static void AddRect0(ref Image bmp, Rectangle r, Pen p)
+        {
+            try
+            {
+                using (Graphics g = Graphics.FromImage(bmp))
+                {
+                    g.DrawRectangle(p, r);
+                }
+            }
+            catch (Exception ex)
+            {
+                DoImageError(ex);
+            }
+
+            //return bmp;
+        }
+
+        public static Image/*Bitmap*/ AddRect(Image/*Bitmap*/ bmp, Rectangle r, Color c, float w = 1.0f)
         {
             try
             {
@@ -252,7 +300,7 @@ namespace SKKLib.Imaging
             return bmp;
         }
 
-        public static Bitmap AddRect(Bitmap bmp, Rectangle r, Brush b, float w = 1.0f)
+        public static Image/*Bitmap*/ AddRect(Image/*Bitmap*/ bmp, Rectangle r, Brush b, float w = 1.0f)
         {
             try
             {
@@ -267,8 +315,9 @@ namespace SKKLib.Imaging
             }
             return bmp;
         }
-        
-        public static Bitmap AddRect(Bitmap bmp, Rectangle r, Pen p)
+
+
+        public static Image/*Bitmap*/ AddRect(Image/*Bitmap*/ bmp, Rectangle r, Pen p)
         {
             try
             {
