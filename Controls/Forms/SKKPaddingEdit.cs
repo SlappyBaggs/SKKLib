@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using ComponentFactory.Krypton.Toolkit;
 using SKKLib.Controls.Data;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace SKKLib.Controls.Forms
 {
@@ -55,6 +47,33 @@ namespace SKKLib.Controls.Forms
         private void butCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private bool AllChanged { get; set; } = false;
+        private bool RegChanged { get; set; } = false;
+
+        private void numAll_ValueChanged(object sender, EventArgs e)
+        {
+            if (RegChanged) return;
+
+            AllChanged = true;
+            numLeft.Value = numAll.Value;
+            numTop.Value = numAll.Value;
+            numRight.Value = numAll.Value;
+            numBottom.Value = numAll.Value;
+            AllChanged= false;
+        }
+
+        private void num_ValueChanged(object sender, EventArgs e)
+        {
+            if (AllChanged) return;
+        
+            RegChanged= true;
+            numAll.Value = ((numLeft.Value == numTop.Value) &&
+                (numLeft.Value == numRight.Value) &&
+                (numLeft.Value == numBottom.Value)) ?
+                numAll.Value = numLeft.Value : -1;
+            RegChanged= false;
         }
     }
 }

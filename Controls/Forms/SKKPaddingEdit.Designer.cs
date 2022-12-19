@@ -102,6 +102,7 @@
             this.numLeft.Size = new System.Drawing.Size(51, 22);
             this.numLeft.TabIndex = 6;
             this.numLeft.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numLeft.ValueChanged += new System.EventHandler(this.num_ValueChanged);
             // 
             // labBottom
             // 
@@ -126,6 +127,7 @@
             this.numBottom.Size = new System.Drawing.Size(51, 22);
             this.numBottom.TabIndex = 4;
             this.numBottom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numBottom.ValueChanged += new System.EventHandler(this.num_ValueChanged);
             // 
             // numRight
             // 
@@ -134,6 +136,7 @@
             this.numRight.Size = new System.Drawing.Size(51, 22);
             this.numRight.TabIndex = 4;
             this.numRight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numRight.ValueChanged += new System.EventHandler(this.num_ValueChanged);
             // 
             // labTop
             // 
@@ -150,6 +153,7 @@
             this.numTop.Size = new System.Drawing.Size(51, 22);
             this.numTop.TabIndex = 2;
             this.numTop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numTop.ValueChanged += new System.EventHandler(this.num_ValueChanged);
             // 
             // labAll
             // 
@@ -171,6 +175,7 @@
             this.numAll.Size = new System.Drawing.Size(51, 22);
             this.numAll.TabIndex = 0;
             this.numAll.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numAll.ValueChanged += new System.EventHandler(this.numAll_ValueChanged);
             // 
             // SKKPaddingEdit
             // 
