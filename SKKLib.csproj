@@ -127,6 +127,7 @@
     <Compile Include="Controls\Forms\_TestForm.Designer.cs">
       <DependentUpon>_TestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Validators\Validators.cs" />
     <Compile Include="DB\AccessToDataSet.cs" />
     <Compile Include="DB\DataOb\ISKKDataOb.cs" />
     <Compile Include="DB\DataOb\SKKDataObAttributes.cs" />
@@ -881,9 +882,7 @@
       <Version>1.2.2</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\Validators\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Megahard\Controls\toggle01.bmp" />
   </ItemGroup>

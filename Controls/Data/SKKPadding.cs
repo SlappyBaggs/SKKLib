@@ -59,8 +59,7 @@ namespace SKKLib.Controls.Data
             get => ToString();
             set
             {
-                SKKPadding p;
-                if (TryParse(value, out p))
+                if (TryParse(value, out SKKPadding p))
                 {
                     Left = p.Left;
                     Right = p.Right;

@@ -218,60 +218,101 @@ namespace SKKLib.Imaging
         public static Bitmap GetSubBMP(Bitmap bmp, int sx, int sy, int w, int h) => GetSubBMP(bmp, destRec, sx, sy, w, h);
         public static Bitmap GetSubBMP(Bitmap bmp, Rectangle dr, int sx, int sy, int w, int h)
         {
-            try
-            {
-                using (Bitmap ret = new Bitmap(w, h))
-                {
-                    using (Graphics g = Graphics.FromImage(ret))
-                    {
-                        g.DrawImage(bmp, dr, sx, sy, w, h, GraphicsUnit.Pixel);
-                    }
-                    return (Bitmap)ret.Clone();
-                }
-            }
-            catch (Exception e)
-            {
-                DoImageError(e);
-            }
+            try { using (Bitmap ret = new Bitmap(w, h)) { using (Graphics g = Graphics.FromImage(ret)) { g.DrawImage(bmp, dr, sx, sy, w, h, GraphicsUnit.Pixel); } return (Bitmap)ret.Clone(); } }
+            catch (Exception e) { DoImageError(e); }
             return null;
         }
 
-        public static void AddRect0(ref Image bmp, Rectangle r, Color c, float w = 1.0f)
+        #region LINES
+
+        #region LINE
+        public static Image AddLine(Image img, Point p1, Point p2, Color c, float w = 1.0f)
+        {
+            try { using (Pen p = new Pen(c, w)) { return AddLine(img, p1, p2, p); } }
+            catch (Exception ex) { DoImageError(ex); }
+            return img;
+        }
+
+        public static Image AddLine(Image img, Point p1, Point p2, Brush b, float w = 1.0f)
+        {
+            try { using (Pen p = new Pen(b, w)) { return AddLine(img, p1, p2, p); } }
+            catch (Exception ex) { DoImageError(ex); }
+            return img;
+        }
+
+
+        public static Image AddLine(Image img, Point p1, Point p2, Pen p)
+        {
+            try { using (Graphics g = Graphics.FromImage(img)) { g.DrawLine(p, p1, p2); } }
+            catch (Exception ex) { DoImageError(ex); }
+            return img;
+        }
+        #endregion
+
+        #region LINE BY REF
+        public static void AddLine(ref Image img, Point p1, Point p2, Color c, float w = 1.0f)
+        {
+            try { using (Pen p = new Pen(c, w)) { AddLine(ref img, p1, p2, p); } }
+            catch (Exception ex) { DoImageError(ex); }
+        }
+
+        public static void AddLine(ref Image img, Point p1, Point p2, Brush b, float w = 1.0f)
+        {
+            try { using (Pen p = new Pen(b, w)) { AddLine(ref img, p1, p2, p); } }
+            catch (Exception ex) { DoImageError(ex); }
+        }
+
+
+        public static void AddLine(ref Image img, Point p1, Point p2, Pen p)
+        {
+            try { using (Graphics g = Graphics.FromImage(img)) { g.DrawLine(p, p1, p2); } }
+            catch (Exception ex) { DoImageError(ex); }
+        }
+        #endregion
+
+        #endregion
+
+        #region RECTANGLES
+
+        #region BORDER
+        public static Image AddRect(Image img, Rectangle r, Color c, float w = 1.0f)
         {
             try
             {
                 using (Pen p = new Pen(c, w))
                 {
-                    AddRect0(ref bmp, r, p);
+                    return AddRect(img, r, p);
                 }
             }
             catch (Exception ex)
             {
                 DoImageError(ex);
             }
+            return img;
         }
 
-        public static void AddRect0(ref Image bmp, Rectangle r, Brush b, float w = 1.0f)
+        public static Image AddRect(Image img, Rectangle r, Brush b, float w = 1.0f)
         {
             try
             {
                 using (Pen p = new Pen(b, w))
                 {
-                    AddRect0(ref bmp, r, p);
+                    return AddRect(img, r, p);
                 }
             }
             catch (Exception ex)
             {
                 DoImageError(ex);
             }
-            //return bmp;
+            return img;
         }
 
-        public static void AddRect0(ref Image bmp, Rectangle r, Pen p)
+
+        public static Image AddRect(Image img, Rectangle r, Pen p)
         {
             try
             {
-                using (Graphics g = Graphics.FromImage(bmp))
+                using (Graphics g = Graphics.FromImage(img))
                 {
                     g.DrawRectangle(p, r);
                 }
@@ -281,58 +322,75 @@ namespace SKKLib.Imaging
                 DoImageError(ex);
             }
 
-            //return bmp;
+            return img;
         }
+        #endregion
 
-        public static Image/*Bitmap*/ AddRect(Image/*Bitmap*/ bmp, Rectangle r, Color c, float w = 1.0f)
+        #region BORDER BY REF
+        public static void AddRect(ref Image img, Rectangle r, Color c, float w = 1.0f)
         {
-            try
-            {
-                using (Pen p = new Pen(c, w))
-                {
-                    return AddRect(bmp, r, p);
-                }
-            }
-            catch (Exception ex)
-            {
-                DoImageError(ex);
-            }
-            return bmp;
+            try { using (Pen p = new Pen(c, w)) { AddRect(ref img, r, p); } }
+            catch (Exception ex) { DoImageError(ex); }
         }
 
-        public static Image/*Bitmap*/ AddRect(Image/*Bitmap*/ bmp, Rectangle r, Brush b, float w = 1.0f)
+        public static void AddRect(ref Image img, Rectangle r, Brush b, float w = 1.0f)
         {
-            try
-            {
-                using (Pen p = new Pen(b, w))
-                {
-                    return AddRect(bmp, r, p);
-                }
-            }
-            catch (Exception ex)
-            {
-                DoImageError(ex);
-            }
-            return bmp;
+            try { using (Pen p = new Pen(b, w)) { AddRect(ref img, r, p); } }
+            catch (Exception ex) { DoImageError(ex); }
         }
 
-
-        public static Image/*Bitmap*/ AddRect(Image/*Bitmap*/ bmp, Rectangle r, Pen p)
+        public static void AddRect(ref Image img, Rectangle r, Pen p)
         {
-            try
-            {
-                using (Graphics g = Graphics.FromImage(bmp))
-                {
-                    g.DrawRectangle(p, r);
-                }
-            }
-            catch (Exception ex)
-            {
-                DoImageError(ex);
-            }
-
-            return bmp;
+            try { using (Graphics g = Graphics.FromImage(img)) { g.DrawRectangle(p, r); } }
+            catch (Exception ex) { DoImageError(ex); }
         }
+        #endregion
+
+        #region FILL
+        public static Image FillRect(Image img, Rectangle r, Pen p)
+        {
+            try { return FillRect(img, r, p.Color); }
+            catch (Exception ex) { DoImageError(ex); }
+            return img;
+        }
+
+        public static Image FillRect(Image img, Rectangle r, Color c)
+        {
+            try { using (Brush b = new SolidBrush(c)) { return FillRect(img, r, b); } }
+            catch (Exception ex) { DoImageError(ex); }
+            return img;
+        }
+
+        public static Image FillRect(Image img, Rectangle r, Brush b)
+        {
+            try { using (Graphics g = Graphics.FromImage(img)) { g.FillRectangle(b, r); } }
+            catch (Exception ex) { DoImageError(ex); }
+            return img;
+        }
+        #endregion
+
+        #region FILL BY REF
+        public static void FillRect(ref Image img, Rectangle r, Pen p)
+        {
+            try { FillRect(ref img, r, p.Color); }
+            catch (Exception ex) { DoImageError(ex); }
+        }
+
+        public static void FillRect(ref Image img, Rectangle r, Color c)
+        {
+            try { using (Brush b = new SolidBrush(c)) { FillRect(ref img, r, b); } }
+            catch (Exception ex) { DoImageError(ex); }
+        }
+
+
+        public static void FillRect(ref Image img, Rectangle r, Brush b)
+        {
+            try { using (Graphics g = Graphics.FromImage(img)) { g.FillRectangle(b, r); } }
+            catch (Exception ex) { DoImageError(ex); }
+        }
+        #endregion
+
+        #endregion
     }
 
     public static class ScreenGrabber
