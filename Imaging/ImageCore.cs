@@ -223,6 +223,19 @@ namespace SKKLib.Imaging
             return null;
         }
 
+        public static Image GetSubIMG(Image img, Rectangle r) => GetSubIMG(img, r.X, r.Y, r.Width, r.Height);
+        public static Image GetSubIMG(Image img, Point p, Size s) => GetSubIMG(img, p.X, p.Y, s.Width, s.Height);
+        public static Image GetSubIMG(Image img, int sx, int sy, Size s) => GetSubIMG(img, sx, sy, s.Width, s.Height);
+        public static Image GetSubIMG(Image img, Point p, int w, int h) => GetSubIMG(img, p.X, p.Y, w, h);
+        public static Image GetSubIMG(Image img, int sx, int sy, int w, int h) => GetSubIMG(img, destRec, sx, sy, w, h);
+        public static Image GetSubIMG(Image img, Rectangle dr, int sx, int sy, int w, int h)
+        {
+            try { using (Image ret = new Bitmap(w, h)) { using (Graphics g = Graphics.FromImage(ret)) { g.DrawImage(img, dr, sx, sy, w, h, GraphicsUnit.Pixel); } return (Image)ret.Clone(); } }
+            catch (Exception e) { DoImageError(e); }
+            return null;
+        }
+
+
         #region LINES
 
         #region LINE
