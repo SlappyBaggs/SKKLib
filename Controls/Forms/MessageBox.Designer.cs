@@ -17,7 +17,6 @@ namespace SKKLib.Controls.Forms
         #region Windows Form Designer generated code
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MessageBox));
             this.tbMessage = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.butOK = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.SuspendLayout();
@@ -49,12 +48,12 @@ namespace SKKLib.Controls.Forms
             this.ClientSize = new System.Drawing.Size(284, 162);
             this.Controls.Add(this.butOK);
             this.Controls.Add(this.tbMessage);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MessageBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SKKMessageBox";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MessageBox_FormClosed);
             this.Load += new System.EventHandler(this.SKKMessageBox_Load);
             this.SizeChanged += new System.EventHandler(this.MessageBox_SizeChanged);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SKKMessageBox_KeyPress);

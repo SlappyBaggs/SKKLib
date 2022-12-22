@@ -27,13 +27,15 @@ namespace SKKLib.Controls.Forms
             szHDiff = Height - tbMessage.Height;
 
             gapTBBut = butOK.Location.Y - tbMessage.Bottom;
+
+            DialogResult = DialogResult.OK;
         }
 
         private int szWDiff;
         private int szHDiff;
         private int gapTBBut;
 
-        public static void ShowMessage(string msg1, string msg2 = "") => new MessageBox(msg1, msg2).ShowDialog();
+        public static DialogResult ShowMessage(string msg1, string msg2 = "") => new MessageBox(msg1, msg2).ShowDialog();
         
         private void SKKMessageBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -50,5 +52,7 @@ namespace SKKLib.Controls.Forms
             tbMessage.Size = new Size(Width - szWDiff, Height - szHDiff);
             butOK.Location = new Point(Width / 2 - butOK.Width / 2, tbMessage.Bottom + gapTBBut);
         }
+
+        private void MessageBox_FormClosed(object sender, FormClosedEventArgs e) => DialogResult = DialogResult.OK;
     }
 }
